@@ -58,4 +58,26 @@ class RepositoriesController extends AppController {
         $this->redirect(array('controller' => $this->name, 'action' => 'index'));
     }
 
+    public function list_json() {
+        $this->layout = null;
+        $this->autoRender = false;
+
+        $list = array();
+        $path = Router::url("/" . $this->Repository->folder . "/");
+
+        $repository = $this->Repository->find('all');
+
+        foreach ($repository as $file) {
+            $url = $path . $file['Repository']['file_name'];
+
+            $list[] = array(
+                'image' => $url,
+                'thumb' => $url,
+                'folder' => 'Imagens'
+            );
+        }
+
+        echo json_encode($list);
+    }
+
 }

@@ -29,3 +29,8 @@
 </div>
 
 <?= $this->element("submit", array('cancel' => '/Settings')) ?>
+
+<script>
+    CKEDITOR.config.extraPlugins = 'imagebrowser';
+    CKEDITOR.config.imageBrowser_listUrl  = "http://localhost/cartorio_net/Repositories/list_json";
+</script>
