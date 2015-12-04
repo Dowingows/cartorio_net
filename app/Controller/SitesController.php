@@ -29,5 +29,9 @@ class SitesController extends AppController {
               
         $this->layout = "site";
     }
+    
+    public function servicos(){
+        
+    }
 
 }
