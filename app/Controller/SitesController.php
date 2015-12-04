@@ -29,6 +29,10 @@ class SitesController extends AppController {
 
         $this->layout = "site";
     }
+    
+    public function servicos(){
+        
+    }
 
     public function page_index() {
         $this->set("pages", $this->paginate("Page"));
