@@ -18,6 +18,13 @@ i.icon-check{
   background: no-repeat url(../images/icon-check.png);
   display: inline-block;
 }
+.icon-check{
+  width: 80px;
+  height: 70px;
+  background: no-repeat url(../images/icon-check.png);
+  display: inline-block;
+}
+
 
 i.icon-check2{
   width: 80px;

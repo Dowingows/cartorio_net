@@ -28,6 +28,11 @@ class SitesController extends AppController {
 
         $this->set("setting", $setting['Setting']);
 
+        $data = $this->Page->findById(1);
+        $json = $data['Page']['content'];
+        $content = json_decode($json); 
+
+        $this->set("content", $content);
         $this->layout = "site";
     }
 
@@ -41,6 +46,10 @@ class SitesController extends AppController {
 
     public function page_edit($id) {
         if (!$this->request->isPut()) {
+            if ($id == 1){
+                $this->redirect(array('controller' => $this->name, 'action' => 'home_edit'));
+            }
+
             $this->data = $this->Page->findById($id);
         } else {
 
@@ -55,6 +64,62 @@ class SitesController extends AppController {
             } else
                 $this->setMessage('validateError');
         }
+    }
+
+    public function home_edit(){
+
+        if (!$this->request->isPost()) {
+            $data = $this->Page->findById(1);
+
+            $json = $data['Page']['content'];
+
+            $content = json_decode($json);
+            
+            $this->set("content", $content);
+        }else{
+            $json;
+            $data = $this->request->data;
+
+            foreach ($data['bloco01'] as $key => $value) {
+                $value['title'] = utf8_encode($value['title']);
+                $value['content'] = utf8_encode($value['content']);
+            }
+
+            foreach ($data['bloco02'] as $key => $value) {
+                $value['title'] = utf8_encode($value['title']);
+                $value['content'] = utf8_encode($value['content']);
+            }
+
+            foreach ($data['bloco03'] as $key => $value) {
+                $value['title'] = utf8_encode($value['title']);
+                $value['content'] = utf8_encode($value['content']);
+            }
+
+            $json = json_encode($data);
+
+            empty($data);
+
+
+            $data['Page']['content'] = $json;
+            
+
+            $this->Page->create($data);
+            $this->Page->id = 1;
+
+            if ($this->Page->validates()) {
+
+                if ($this->Page->save(null, false)) {
+                    $this->setMessage('saveSuccess', 'Page');
+                    $this->redirect($this->referer());
+                } else
+                    $this->setMessage('saveError', 'Page');
+            } else
+                $this->setMessage('validateError');
+
+            //pr($json);
+            
+        }   
+
     }
 
 }
