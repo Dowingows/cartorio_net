@@ -10,7 +10,7 @@ class SitesController extends AppController {
     public $name = "Sites";
     public $setMenu = "Sites";
     public $submenu = array('page_index', 'page_add');
-    public $uses = array('Setting', 'Page');
+    public $uses = array('Setting', 'Page', 'SolicitacaoServico', 'TipoServico');
 
     /* ----------------------------------------
      * Actions
@@ -19,6 +19,7 @@ class SitesController extends AppController {
     public function beforeFilter() {
         parent::beforeRender();
         $this->Auth->allow('index');
+        $this->Security->unlockedActions = array('servicos');
     }
 
     public function index() {
@@ -28,10 +29,6 @@ class SitesController extends AppController {
         $this->set("setting", $setting['Setting']);
 
         $this->layout = "site";
-    }
-    
-    public function servicos(){
-        
     }
 
     public function page_index() {
