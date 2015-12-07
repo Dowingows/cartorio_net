@@ -235,6 +235,9 @@
  * any date & time related errors.
  */
 	//date_default_timezone_set('UTC');
+        
+        Configure::write('Config.timezone', 'Brazil/East');
+
 
 /**
  * Pick the caching engine to use.  If APC is enabled use it.

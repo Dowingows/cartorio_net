@@ -3,3 +3,12 @@
 .error-message{
     color:red;
 }
+
+.req{
+    color:#A03E33;
+    font-weight: bold;
+}
+
+.help-inline{
+    color:red;
+}

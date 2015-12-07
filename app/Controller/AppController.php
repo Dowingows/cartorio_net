@@ -169,7 +169,7 @@ class AppController extends Controller {
         }
     }
 
-    protected function setMessage($template, $model = null) {
+    protected function setMessage($template, $model = null, $v = null) {
 
         $str = $class = null;
 
@@ -197,14 +197,18 @@ class AppController extends Controller {
 
             case "validateError":
                 $str = "Preencha todos os campos abaixo <strong>corretamente</strong> e tente novamente.";
-                $class = 'error';
+                if ($v != 3) {
+                    $class = 'error';
+                } else {
+                    $class = 'danger';
+                }
                 break;
 
             case 'noResult':
                 $str = up($this->{$model}->gender) . " <strong>" . $this->{$model}->label . "</strong> que você está tentando acessar <strong>não existe</strong>.";
                 $class = 'error';
                 break;
-             case "isWritable":
+            case "isWritable":
                 $str = "Você não tem permissão para enviar arquivos. Entre em contato com o administrador.";
                 $class = 'error';
                 break;

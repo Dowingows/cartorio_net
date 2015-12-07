@@ -28,6 +28,8 @@
 	Router::connect('/', array('controller' => 'sites', 'action' => 'index', 'home'));
 	Router::connect('/admin', array('controller' => 'pages', 'action' => 'display', 'home'));
         
+	Router::connect('/solicitar-certidao', array('controller' => 'SolicitacaoServicos', 'action' => 'solicitar_servico'));
+        
         
         
         Router::connect('/admin/users',

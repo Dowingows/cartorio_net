@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <meta name="format-detection" content="telephone=no">
     <link rel="icon" href="img/favicon.ico" type="img/x-icon">
+    
+    <?= $this->Html->css(array('bootstrap/bootstrap.min')); ?>
+    
     <?= $this->Html->css(array('cartorio/grid'))?>
     <?= $this->Html->css(array('cartorio/style'))?>
     <?= $this->Html->css(array('cartorio/camera'))?>
@@ -12,6 +15,7 @@
     
     <?= $this->Html->script(array('cartorio/jquery'))?>
     <?= $this->Html->script(array('cartorio/jquery-migrate-1.2.1'))?>
+    <?= $this->Html->script(array('bootstrap/bootstrap.min')); ?>
   
         <!--[if lt IE 9]>
     <html class="lt-ie9">
@@ -92,8 +96,8 @@
               <ul data-type="navbar" class="sf-menu">
                 <li class="active"><a href="./">Home</a>
                 </li>
-                <li><a href="#">Empresa</a>
-                  <ul>
+                <li><a href="#">Institucional</a>
+<!--                  <ul>
                     <li><a href="#">Lorem ipsum dolor</a></li>
                     <li><a href="#">Conse ctetur adipisicing</a></li>
                     <li><a href="#">Elit sed do eiusmod
@@ -105,14 +109,15 @@
                     <li><a href="#">Incididunt ut labore</a></li>
                     <li><a href="#">Et dolore magna</a></li>
                     <li><a href="#">Ut enim ad minim</a></li>
-                  </ul>
+                  </ul>-->
                 </li>
                 <li><a href="#">Serviços</a>
                 </li>
-                <li><a href="#">FAQS</a>
+                <li><?= $this->Html->link('Solicite a sua certidão','/solicitar-certidao')?></li>
+                <li><?= $this->Html->link('Serviços para Advogados','#')?></li>
                 </li>
-                <li><a href="#">Contato</a>
-                </li>
+                <li><a href="#">Contato</a></li>
+                <!--<li><a href="#">FAQ</a></li>-->
               </ul>
             </nav>
           </div>
@@ -178,7 +183,7 @@
         </section>
         <section>
           <div class="container">
-            <div class="copyright">ContórioNet © <span id="copyright-year"></span>
+            <div class="copyright">CartórioNet © <span id="copyright-year"></span>
             </div>
           </div
         </section>

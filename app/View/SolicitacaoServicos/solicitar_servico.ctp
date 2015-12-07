@@ -1,62 +1,138 @@
-
+<?= $this->Html->css(array('custom')) ?>
 <?php
 print $this->Form->create("SolicitacaoServico", array("class" => "form-horizontal", 'novalidate'));
 ?>
+<main class="mobile-center">
+    <section>
+        <div class="container hr well1 ins2">
+               <?= $this->FrontEnd->message(); ?>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-10">
+                <div class="row">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><h4>Dados do Solicitante</h4></div>
+                        <div class="panel-body">
+                            <div class="col-lg-12">
+                                <h6>Preencha as informações abaixo para iniciar o seu Pedido de Certidão.</h6> 
+                                <span class="req">* Campos de preenchimento obrigatório.</span>
+                            </div>
+                            <div class="form-group" style="padding-left: 20px;padding-right: 20px;">
 
-<div class="control-group">
-    <fieldset>
-        <legend>Dados dos solicitante</legend>
-        <?php
-        print $this->BForm->input('SolicitacaoServico.nome_solicitante', array('label' => 'Nome', 'placeholder' => 'Nome '));
-        print $this->BForm->input('SolicitacaoServico.cpf_cnpj_solicitante', array("label" => 'CPF/CNPJ'));
-        print $this->BForm->input('SolicitacaoServico.rg_solicitante', array("label" => 'RG'));
-        print $this->BForm->input('SolicitacaoServico.telefone_1_solicitante', array("label" => 'Telefone 1'));
-        print $this->BForm->input('SolicitacaoServico.telefone_2_solicitante', array("label" => 'Telefone 2'));
-        print $this->BForm->input('SolicitacaoServico.ramal_solicitante', array("label" => 'Ramal'));
-        print $this->BForm->input('SolicitacaoServico.cel_solicitante', array("label" => 'Celular'));
-        print $this->BForm->input('SolicitacaoServico.email_solicitante', array("label" => 'Email'));
-        ?>
-        <legend>Endereço de entrega</legend>
+                                <div class="col-lg-12">
+                                    <?= $this->BForm->input('SolicitacaoServico.nome_solicitante', array('label' => 'Nome', 'placeholder' => 'Nome ', 'div' => false, 'class' => 'form-control')); ?>
+                                </div>
+                                <div class="col-lg-6">
+                                    <?= $this->BForm->input('SolicitacaoServico.cpf_cnpj_solicitante', array("label" => 'CPF/CNPJ', 'placeholder' => 'CPF/CNPJ', 'div' => false, 'class' => 'form-control')); ?>
+                                </div>
+                                <div class="col-lg-6">
+                                    <?= $this->BForm->input('SolicitacaoServico.rg_solicitante', array("label" => 'RG', 'placeholder' => 'RG', 'required' => false, 'div' => false, 'class' => 'form-control')); ?>
+                                </div>
+                                <div class="col-lg-6">
+                                    <?= $this->BForm->input('SolicitacaoServico.telefone_1_solicitante', array("label" => 'Telefone 1', 'div' => false, 'class' => 'form-control')); ?> 
+                                </div >
+                                <div class="col-lg-6">
+                                    <?= $this->BForm->input('SolicitacaoServico.ramal_solicitante', array("label" => 'Ramal', 'required' => false, 'div' => false, 'class' => 'form-control')); ?>
+                                </div>
+                                <div class="col-lg-6">
+                                    <?= $this->BForm->input('SolicitacaoServico.telefone_2_solicitante', array("label" => 'Telefone 2', 'required' => false, 'div' => false, 'class' => 'form-control')); ?>
+                                </div>
+                                <div class="col-lg-6">
+                                    <?= $this->BForm->input('SolicitacaoServico.cel_solicitante', array("label" => 'Celular', 'required' => false, 'div' => false, 'class' => 'form-control')); ?>
+                                </div>
+                                <div class="col-lg-12">
+                                    <?= $this->BForm->input('SolicitacaoServico.email_solicitante', array("label" => 'Email', 'div' => false, 'class' => 'form-control')); ?>   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                 <div class="panel panel-default">
+                        <div class="panel-heading"><h4>Endereço de Entrega</h4></div>
+                        <div class="panel-body">
+                            <div class="col-lg-6">
+                                <?= $this->BForm->input('SolicitacaoServico.endereco_entrega', array("label" => 'Endereco', 'div' => false, 'class' => 'form-control'));?>
+                            </div>
+                            <div class="col-lg-6">
+                                <?= $this->BForm->input('SolicitacaoServico.numero_entrega', array("label" => 'N&uacute;mero', 'required' => false, 'div' => false, 'class' => 'form-control'));?>
+                            </div>
+                            <div class="col-lg-6">
+                                <?= $this->BForm->input('SolicitacaoServico.complemento_entrega', array("label" => 'Complemento', 'required' => false, 'div' => false, 'class' => 'form-control'));?>
+                            </div>
+                            <div class="col-lg-6">
+                                <?= $this->BForm->input('SolicitacaoServico.bairro_entrega', array("label" => 'Bairro', 'required' => false, 'div' => false, 'class' => 'form-control'));?>
+                            </div>
+                            <div class="col-lg-6">
+                                <?= $this->BForm->input('SolicitacaoServico.cep_entrega', array("label" => 'CEP', 'div' => false, 'class' => 'form-control'));?>
+                            </div>
+                            <div class="col-lg-6">
+                                <?= $this->BForm->input('SolicitacaoServico.estado_entrega', array("label" => 'Estado', 'type' => 'select', 'options' => $estados, 'empty' => '-- Selecione um estado -- ', 'div' => false, 'class' => 'form-control'));?>
+                            </div>                
+                            <div class="col-lg-6">
+                                <?= $this->BForm->input('SolicitacaoServico.cidade_entrega', array("label" => 'Cidade', 'type' => 'select', 'empty' => '-- Selecione uma cidade --', 'div' => false, 'class' => 'form-control'));?>
+                            </div>
+                        </div>
+                 </div>
+                </div>
+             
+                 <div class="row">
+                    <div class="panel panel-default">
+                           <div class="panel-heading"><h4>Dados do documento</h4></div>
+                           <div class="panel-body">
+                               <div class="col-lg-6">
+                                 <?= $this->BForm->input('DadoDocumento.tipo_servico_id', array("label" => 'Serviço', 'options' => $tipos_servico, 'type' => 'select', 'empty' => '-- Selecione o Serviço --', 'div' => false, 'class' => 'form-control')); ?>   
+                               </div>
+                               <div class="col-lg-6">
+                                 <?= $this->BForm->input('DadoDocumento.regiao', array("label" => 'Região', 'type' => 'select', 'div' => false, 'class' => 'form-control')); ?>  
+                               </div>
+                               <div id="document_fields">
+                                    <?= $inputs ?>
+                               </div>
+                               <div class="col-lg-12">
+                                    <?= $this->BForm->input('DadoDocumento.observacao', array("label" => 'Observação', 'type' => 'textarea', 'required' => false, 'div' => false, 'class' => 'form-control')); ?>
+                                   
+                               </div>
+                           </div>
+                    </div>
+                 </div>
+                <div class="row">
+                    <?= $this->element("submit3", array('cancel' => '/servicos')) ?>
+                </div>
+            </div>
+        </div>
 
-        <?php
-        print $this->BForm->input('SolicitacaoServico.endereco_entrega', array("label" => 'Endereco'));
-        print $this->BForm->input('SolicitacaoServico.complemento_entrega', array("label" => 'Complemento'));
-        print $this->BForm->input('SolicitacaoServico.numero_entrega', array("label" => 'numero'));
-        print $this->BForm->input('SolicitacaoServico.bairro_entrega', array("label" => 'Bairro'));
-        print $this->BForm->input('SolicitacaoServico.cep_entrega', array("label" => 'CEP'));
-        print $this->BForm->input('SolicitacaoServico.estado_entrega', array("label" => 'Estado', 'type' => 'select'));
-        print $this->BForm->input('SolicitacaoServico.cidade_entrega', array("label" => 'Cidade', 'type' => 'select'));
-        ?>
-
-
-        <legend>Dados do documento</legend>
-
-        <?= $this->BForm->input('DadoDocumento.tipo_servico_id', array("label" => 'Serviço', 'options' => $tipos_servico, 'type' => 'select', 'empty' => '-- Selecione o Serviço --')); ?>
-        <?= $this->BForm->input('DadoDocumento.regiao', array("label" => 'Região', 'type' => 'select')); ?>
-        <div id="document_fields">
-            <?= $inputs ?>
-        </div>        
-        <?= $this->BForm->input('DadoDocumento.observacao', array("label" => 'Observação', 'type' => 'textarea')); ?>
-    </fieldset>
-</div>
-
-<?= $this->element("submit", array('cancel' => '/servicos')) ?>
-
-
-
+    </section>
+</main>
 <script>
 
-    link = '<?= $this->Html->url(array('controller' => 'SolicitacaoServicos', 'action' => 'getFieldsServico')) ?>'
+    link_municipios = '<?= $this->Html->url(array('controller' => 'SolicitacaoServicos', 'action' => 'getMunicipiosByUFAjax')) ?>'
 
-    $('#DadoDocumentoTipoServicoId').bind('change', function () {
+
+    $change_municipio = function () {
         if (this.value != "") {
             $.ajax({
-                url: link + '/' + this.value,
+                url: link_municipios + '/' + this.value,
                 success: function (data) {
-                    $('#document_fields').html(data);
+                    var options = "";
+                    data = eval('[' + data + ']')[0];
+
+                    if (data == false) {
+                        $('#DadoDocumentoCidade').html('<option value="">-- Selecione um município --</option>');
+                    } else {
+                        console.log(data[0]);
+
+                        options += '<option value="">-- Selecione um município --</option>';
+
+                        for (var i = 0; i < data.length; i++) {
+                            options += '<option value="' + data[i].label + '">' + data[i].value + '</option>';
+                        }
+
+                        $('#DadoDocumentoCidade').html(options);
+                    }
                 },
                 beforeSend: function () {
-                    $('#document_fields').html('');
+                    // $('#document_fields').html('');
                     //$('.loader').css({display:"block"});
                 },
                 complete: function () {
@@ -64,7 +140,66 @@ print $this->Form->create("SolicitacaoServico", array("class" => "form-horizonta
                 }
             });
         } else {
+            $('#DadoDocumentoCidade').html('<option value="">-- Selecione um município --</option>');
+        }
+    };
+    link_fields = '<?= $this->Html->url(array('controller' => 'SolicitacaoServicos', 'action' => 'getFieldsServico')) ?>'
+
+    $('#DadoDocumentoTipoServicoId').bind('change', function () {
+        if (this.value != "") {
+            $.ajax({
+                url: link_fields + '/' + this.value,
+                success: function (data) {
+                    $('#document_fields').html(data);
+                    $('#DadoDocumentoEstado').trigger('change');
+                },
+                beforeSend: function () {
+                    $('#document_fields').html('');
+                    //$('.loader').css({display:"block"});
+                },
+                complete: function () {
+                    $('#DadoDocumentoEstado').bind('change', $change_municipio);
+                }
+            });
+        } else {
             $('#document_fields').html("");
+        }
+    });
+
+    $('#DadoDocumentoTipoServicoId').trigger('change');
+
+    $('#SolicitacaoServicoEstadoEntrega').bind('change', function () {
+        if (this.value != "") {
+            $.ajax({
+                url: link_municipios + '/' + this.value,
+                success: function (data) {
+                    var options = "";
+                    data = eval('[' + data + ']')[0];
+
+                    if (data == false) {
+                        $('#SolicitacaoServicoCidadeEntrega').html('<option value="">-- Selecione um município --</option>');
+                    } else {
+                        console.log(data[0]);
+
+                        options += '<option value="">-- Selecione um município --</option>';
+
+                        for (var i = 0; i < data.length; i++) {
+                            options += '<option value="' + data[i].label + '">' + data[i].value + '</option>';
+                        }
+
+                        $('#SolicitacaoServicoCidadeEntrega').html(options);
+                    }
+                },
+                beforeSend: function () {
+                    // $('#document_fields').html('');
+                    //$('.loader').css({display:"block"});
+                },
+                complete: function () {
+                    //$('.loader').css({display:"none"});
+                }
+            });
+        } else {
+            $('#SolicitacaoServicoCidadeEntrega').html('<option value="">-- Selecione um município --</option>');
         }
     });
 </script>

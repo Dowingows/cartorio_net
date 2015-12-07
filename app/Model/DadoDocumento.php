@@ -45,12 +45,10 @@ class DadoDocumento extends AppModel {
 //        'estado' => array(
 //            'rule' => 'notBlank',
 //            'message' => 'Esse campo não pode ser vazio!',
-//            'required' => true
 //        ),
 //        'cidade' => array(
 //            'rule' => 'notBlank',
 //            'message' => 'Esse campo não pode ser vazio!',
-//            'required' => true
 //        ),
         'cep' => array(
             'rule' => 'notBlank',
