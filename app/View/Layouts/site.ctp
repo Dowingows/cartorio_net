@@ -250,18 +250,6 @@
       </footer>
     </div>
   <?= $this->Html->script(array("cartorio/script"))?>
-  <?= $this->Html->script(array('medium-editor/medium-editor.min'))?>
-
-    <script>
-      var editor = new MediumEditor('.editable', {
-          buttonLabels: 'fontawesome'
-      })
-
-
-      $('.editable2').bind('input propertychange', function() {
-        console.log(this);
-      });
-    </script>
 
 
   </body>
