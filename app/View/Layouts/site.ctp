@@ -26,6 +26,31 @@
 
     <style type="text/css">
 
+      .brand_name{
+        width: 80%;
+      }
+
+      header a[href^="callto:"] {
+        margin-top: 40px;
+        position: relative;
+        font-size: 24px;
+        color: #9A9FA3;
+      }
+
+      header a[href^="callto:"]:before {
+        position: absolute;
+        top: -4px;
+        left: -44px;
+        font-size: 40px;
+        color: red;
+      }
+
+      header a[href^="callto:"]:hover {
+        color: #9A9FA3;
+      }
+
+
+
     .banner li:nth-child(1) {
       background: #434547;
     }
@@ -54,10 +79,6 @@
       background: #4A4C4D;
     }
     
-
-    .brand_name img{
-      width: 35%;
-    }
 
     header {
         background: #434547;
@@ -103,6 +124,13 @@
       color: #777777;
     }
 
+   @media (max-width: 767px) {
+    .product-list li .box_aside {
+        float: none;
+        background-color: ;
+    }
+  }
+
     </style>
   </head>
   <body>
@@ -117,9 +145,11 @@
       <header>
         <div class="container">
           <div class="brand">
-            <h1 class="brand_name"><a href="#"><?= $this->Html->image('logo.png') ?></a> 
-            <a href="callto:#" style="margin-top: 30px;color:#9A9FA3"><?=$setting['phone'] ?></a>          
+            <h1 class="brand_name"><a href="#"><?= $this->Html->image('logo3.png',array('alt' => 'Cartório Net')) ?></a>        
             </h1>
+            <a href="callto:#">
+              <i class="fa fa-phone"></i>&nbsp;<?=$setting['phone'] ?>
+            </a>   
           </div>
         </div>
         <div id="stuck_container" class="stuck_container">

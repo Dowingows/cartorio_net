@@ -296,7 +296,7 @@ p + .btn_wr {
 }
 
 .brand_name img{
-  width: 50%;
+  width: 40%;
 }
 
 /*==================  Backgrounds  ======================*/
@@ -615,9 +615,13 @@ p + .btn_wr {
   .product-list li .box {
     text-align: center;
   }
+
+  /*
+    O código abaixo muda a cor do brackground do box_aside quando a página se adapata aos dispositivos móveis
+  */
   .product-list li .box_aside {
     float: none;
-    background-color: red;
+    background-color: #4A4C4D;
   }
   .product-list li .box_aside .icon {
     display: inline-block;
