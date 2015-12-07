@@ -17,52 +17,62 @@
           </div>    
         </section>
         <section>
-          <div class="container banner_wr">
+          <div class="container banner_wr editable2">
             <ul class="banner">
-              <li>
-                <i class="icon-check"> </i>
-                <h3>Escolha o documento</h3>
-                <p>Navegue pelo menu acima e encontre o documento que você precisa. Leia o termo de uso com atenção e, estando de acordo, preencha os dados requeridos referente ao solicitante.</p><a href="#"></a>
-              </li>
-              <li>
-                <i class="icon-map"></i>
-                <h3>Escolha o endereço de entrega</h3>
-                <p>Selecione o endereço de entrega dos documentos, pois isso influencia no preço do mesmo. Confirme o endereço de entrega e clique em confirmar.</p><a href="#"></a>
-              </li>
-              <li>
-                <i class="icon-document"> </i>
-                <h3>Informe os dados</h3>
-                <p>Informe os dados para emissão do documento/certidão. Após esse passo você terá a opção de:Solicitar outro documento/certidão, É equivalente a voltar ao primeiro passo.Confirmar os dados e finalizar seu pedido.</p><a href="#"></a>
-              </li>
-              <li>
-                <i class="icon-email"> </i>
-                <h3>Espere o orçamento</h3>
-                <p>Assim que sua solicitação foi recebida, iremos avaliá-la e assim que possível entraremos em contato.</p><a href="#"></a>
-              </li>
+            <?php if (!empty($content)):?>
+              <?php foreach ($content->bloco01 as $key => $value): ?>
+                <li>
+                  <?php switch ($key) {
+                    case 0:
+                      echo '<i class="icon-check"> </i>';
+                      break;
+                    case 1:
+                      echo '<i class="icon-map"> </i>';
+                      break; 
+                    case 2:
+                      echo '<i class="icon-document"> </i>';
+                      break;  
+                    case 3:
+                      echo '<i class="icon-email"> </i>';
+                      break;               
+                  }?>
+                
+                  <h3><?= $value->title?></h3>
+                  <div class="editable">
+                      <p><?= $value->content?></p>
+                      <a href="#"></a>
+                  </div>
+                
+                </li>
+              <?php endforeach;?>
+            <?php endif;?>
             </ul>
           </div>
         </section>
         <section class="well ins1">
           <div class="container hr">
             <ul class="row product-list">
+             <?php if (!empty($content)):?>
               <li class="grid_6">
                 <div class="box wow fadeInRight">
                   <div class="box_aside">
-                    <div class="icon fa-comments"></div>
+                    <div class="icon fa-file-text-o"></div>
                   </div>
                   <div class="box_cnt__no-flow">
-                    <h3><a href="#">Certidões</a></h3>
-                    <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolor.</p>
+                    <h3><a href="#"><?= $content->bloco02[0]->title ?></a></h3>
+                    <div class="editable">
+                    <p><?= $content->bloco02[0]->content ?></p>
+                    </div>
                   </div>
                 </div>
                 <hr>
                 <div data-wow-delay="0.2s" class="box wow fadeInRight">
                   <div class="box_aside">
-                    <div class="icon fa-calendar-o"></div>
+                    <div class="icon fa fa-search"></div>
                   </div>
                   <div class="box_cnt__no-flow">
-                    <h3><a href="#">Busca de bens</a></h3>
-                    <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolor.</p>
+                    <h3><a href="#"><?= $content->bloco02[1]->title ?></a></h3>
+                    <p><?= $content->bloco02[1]->content ?></p>
                   </div>
                 </div>
               </li>
@@ -72,8 +82,8 @@
                     <div class="icon fa-group"></div>
                   </div>
                   <div class="box_cnt__no-flow">
-                    <h3><a href="#">Serviço especial para advogados</a></h3>
-                    <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolor.</p>
+                    <h3><a href="#"><?= $content->bloco02[2]->title ?></a></h3>
+                    <p><?= $content->bloco02[2]->content ?></p>
                   </div>
                 </div>
                 <hr>
@@ -82,35 +92,31 @@
                     <div class="icon fa-thumbs-up"></div>
                   </div>
                   <div class="box_cnt__no-flow">
-                    <h3><a href="#">Documentos diversos</a></h3>
-                    <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolor.</p>
+                    <h3><a href="#"><?= $content->bloco02[3]->title ?></a></h3>
+                    <p><?= $content->bloco02[3]->content ?></p>
                   </div>
                 </div>
               </li>
+            <?php endif;?>
             </ul>
           </div>
         </section>
         <section class="well1">
           <div class="container">
             <div class="row">
-              <div class="grid_4">
-                <h2>Empresa</h2><?= $this->Html->image('page-1_img01.jpg') ?>
-                <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p><a href="#" class="btn">Mais...</a>
-              </div>
-              <div class="grid_4">
-                <h2>Serviços</h2>
-                <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                <br>
-                <ul>
-                  <li><i class="icon-check2"></i><a href="#">Certidão de Averbação de Divórcio</a></li>
-                  <li><i class="icon-check2"></i><a href="#">Certidão de Casamento (2ª via) </a></li>
-                  <li><i class="icon-check2"></i><a href="#">Certidão de Distribuições Criminais</a></li>
-                  <li><i class="icon-check2"></i><a href="#">Certidão de Falência e Concordata</a></li>
-                  <li><i class="icon-check2"></i><a href="#">Certidão de Matrícula Atualizada</a></li>
-                  <li><i class="icon-check2"></i><a href="#">Certidão de Negativa do IPTU</a></li>
+            <?php if (!empty($content)):?>
 
-                </ul><a href="#" class="btn">Mais...</a>
-              </div>
+              <?php foreach ($content->bloco03 as $key => $value): ?>
+                <div class="grid_4">
+                  <div>
+                  <h2><?= $value->title ?></h2>
+                  <?= $value->content ?>
+                  </div>
+                  <a href="#" class="btn">Mais...</a>              
+                </div>
+              <?php endforeach; ?>
+              
+            <?php endif;?>
               <div class="grid_4">
                 <div class="info-box">
                   <h2 class="fa-comment">Entre em contato</h2>

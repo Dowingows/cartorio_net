@@ -10,8 +10,6 @@
     
     <?= $this->Html->css(array('cartorio/grid'))?>
     <?= $this->Html->css(array('cartorio/style'))?>
-    <?= $this->Html->css(array('cartorio/camera'))?>
-    <?= $this->Html->css(array('cartorio/owl-carousel'))?>
     
     <?= $this->Html->script(array('cartorio/jquery'))?>
     <?= $this->Html->script(array('cartorio/jquery-migrate-1.2.1'))?>
@@ -25,6 +23,31 @@
   
 
     <style type="text/css">
+
+      .brand_name{
+        width: 80%;
+      }
+
+      header a[href^="callto:"] {
+        margin-top: 40px;
+        position: relative;
+        font-size: 24px;
+        color: #9A9FA3;
+      }
+
+      header a[href^="callto:"]:before {
+        position: absolute;
+        top: -4px;
+        left: -44px;
+        font-size: 40px;
+        color: red;
+      }
+
+      header a[href^="callto:"]:hover {
+        color: #9A9FA3;
+      }
+
+
 
     .banner li:nth-child(1) {
       background: #434547;
@@ -55,12 +78,6 @@
     }
     
 
-    .brand_name img{
-      width: 35%;
-    }
-
-
-
     header {
         background: #434547;
     }
@@ -71,6 +88,47 @@
     .info-box {
       background: #434547;
     }
+
+
+    .well1 ul{
+        list-style-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><circle fill="red" cx="5" cy="5" r="5"/></svg>');
+    }
+
+
+    .well1 li {
+      position: relative;
+      margin-left: 25px;
+      padding-left: 15px;
+      padding-top: 16px;
+      padding-bottom: 16px;
+      font-size: 16px;
+      line-height: 18px;
+      color: #9A9FA3;
+    }
+    .well1 li a:before {
+      content: "\f00c";
+      position: absolute;
+      left: 0;
+      top: 16px;
+      font-weight: 400;
+      font-size: 22px;
+      font-family: "FontAwesome";
+    }
+    .well1 li + li {
+      margin-top: 0px;
+      border-top: 1px solid #e5e5e5;
+    }
+    .well1 a:hover {
+      color: #777777;
+    }
+
+   @media (max-width: 767px) {
+    .product-list li .box_aside {
+        float: none;
+        background-color: ;
+    }
+  }
+
     </style>
   </head>
   <body>
@@ -85,9 +143,11 @@
       <header>
         <div class="container">
           <div class="brand">
-            <h1 class="brand_name"><a href="#"><?= $this->Html->image('logo.png') ?></a> 
-            <a href="callto:#" style="margin-top: 30px;color:#9A9FA3"><?=$setting['phone'] ?></a>          
+            <h1 class="brand_name"><a href="#"><?= $this->Html->image('logo3.png',array('alt' => 'Cartório Net')) ?></a>        
             </h1>
+            <a href="callto:#">
+              <i class="fa fa-phone"></i>&nbsp;<?=$setting['phone'] ?>
+            </a>   
           </div>
         </div>
         <div id="stuck_container" class="stuck_container">
@@ -190,5 +250,19 @@
       </footer>
     </div>
   <?= $this->Html->script(array("cartorio/script"))?>
+  <?= $this->Html->script(array('medium-editor/medium-editor.min'))?>
+
+    <script>
+      var editor = new MediumEditor('.editable', {
+          buttonLabels: 'fontawesome'
+      })
+
+
+      $('.editable2').bind('input propertychange', function() {
+        console.log(this);
+      });
+    </script>
+
+
   </body>
 </html>
