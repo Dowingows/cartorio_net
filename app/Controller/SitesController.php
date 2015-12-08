@@ -18,9 +18,11 @@ class SitesController extends AppController {
 
     public function beforeFilter() {
         parent::beforeRender();
-        parent::beforeFilter();
-        $this->Auth->allow('index');
+        $this->Auth->allow('index', 'sigle_page');
         $this->Security->unlockedActions = array('servicos');
+
+        $setting = $this->Setting->find('first');
+        $this->set("setting", $setting['Setting']);
     }
 
     public function index() {

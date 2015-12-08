@@ -84,8 +84,6 @@ class AppController extends Controller {
                 $this->redirect(array('controller' => 'users', 'action' => 'manageAccount'));
         }
 
-        $setting = $this->Setting->find('first');
-        $this->set("setting", $setting['Setting']);
     }
 
     /* ----------------------------------------
