@@ -18,21 +18,26 @@ class SitesController extends AppController {
 
     public function beforeFilter() {
         parent::beforeRender();
+        parent::beforeFilter();
         $this->Auth->allow('index');
         $this->Security->unlockedActions = array('servicos');
     }
 
     public function index() {
 
-        $setting = $this->Setting->find('first');
-
-        $this->set("setting", $setting['Setting']);
-
         $data = $this->Page->findById(1);
         $json = $data['Page']['content'];
         $content = json_decode($json); 
 
         $this->set("content", $content);
+        $this->layout = "site";
+    }
+
+    public function sigle_page($id) {
+
+        $data = $this->Page->findById($id);
+
+        $this->set("data", $data);
         $this->layout = "site";
     }
 

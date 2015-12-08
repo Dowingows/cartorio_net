@@ -10,6 +10,9 @@
         <legend>Dados</legend>
         <fieldset>
         <?php
+        print $this->BForm->input('Setting.site_name', array('label' => 'Nome do site', 'type' => 'text'));
+        print $this->BForm->input('Setting.site_title', array('label' => 'T&iacute;tulo do site', 'type' => 'text'));
+        print $this->BForm->input('Setting.site_description', array('label' => 'Descric&atilde;o do site', 'type' => 'text'));
         print $this->BForm->input('Setting.email_admin', array('label' => 'Email do administrador', 'type' => 'email'));
         print $this->BForm->input('Setting.email_contact', array('label' => 'Email para contato', 'type' => 'email'));
         print $this->BForm->input('Setting.phone', array('label' => 'Telefone'));

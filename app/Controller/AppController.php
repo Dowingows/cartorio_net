@@ -83,6 +83,9 @@ class AppController extends Controller {
             if (!$this->Auth->user('pass_switched') && $this->action != 'manageAccount')
                 $this->redirect(array('controller' => 'users', 'action' => 'manageAccount'));
         }
+
+        $setting = $this->Setting->find('first');
+        $this->set("setting", $setting['Setting']);
     }
 
     /* ----------------------------------------

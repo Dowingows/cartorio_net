@@ -1,11 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="pt-BR"  prefix="og: http://ogp.me/ns#">
   <head>
-    <title>Home</title>
+    
     <meta charset="utf-8">
     <meta name="format-detection" content="telephone=no">
     <link rel="icon" href="img/favicon.ico" type="img/x-icon">
-    
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:type" content="website" />
+
+    <?php if ($this->request->action == 'index'){?>
+      <title><?= $setting['site_name'] . ' - ' . $setting['site_title'] ?></title>
+      <meta property="og:title" content="<?= $setting['site_title']?>" />
+      <meta property="og:site_name" content="<?= $setting['site_name'] ?>" />
+      <meta property="og:description" content="<?= $setting['site_description']?>" />
+    <?php } else {?>
+      <title><?= $setting['site_name'] . ' - ' . $data['Page']['title'] ?></title>
+      <meta property="og:title" content="<?= $data['Page']['title'] ?>" />
+      <meta property="og:site_name" content="<?= $setting['site_name'] ?>" />
+      <meta property="og:description" content="<?= $data['Page']['description']?>" />    
+    <?php }?>
+
+    <meta property="og:url" content="<?= 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>" />
+    <meta property="og:image" content="<?= $this->Html->url('/img/logo3.png', true); ?>" />
+
+
     <?= $this->Html->css(array('bootstrap/bootstrap.min')); ?>
     
     <?= $this->Html->css(array('cartorio/grid'))?>
@@ -156,7 +174,7 @@
               <ul data-type="navbar" class="sf-menu">
                 <li class="active"><a href="./">Home</a>
                 </li>
-                <li><a href="#">Institucional</a>
+                <li><a href="<?= $this->Html->url('/institucional') ?>">Institucional</a>
 <!--                  <ul>
                     <li><a href="#">Lorem ipsum dolor</a></li>
                     <li><a href="#">Conse ctetur adipisicing</a></li>
