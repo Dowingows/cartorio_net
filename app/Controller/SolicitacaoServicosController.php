@@ -21,13 +21,13 @@ class SolicitacaoServicosController extends AppController {
         parent::beforeRender();
         $this->Auth->allow('solicitar_servico', 'getFieldsServico', 'getMunicipiosByUFAjax');
         $this->Security->unlockedActions = array('solicitar_servico');
-        
+
         $setting = $this->Setting->find('first');
         $this->set("setting", $setting['Setting']);
-        $data=array();
-        $data['Page']['title'] ='';
-        $data['Page']['description'] ='';
-        $this->set('data',$data);
+        $data = array();
+        $data['Page']['title'] = '';
+        $data['Page']['description'] = '';
+        $this->set('data', $data);
     }
 
     public function view_solicitacao($id) {
@@ -80,6 +80,29 @@ class SolicitacaoServicosController extends AppController {
         $this->layout = "site";
     }
 
+    public function send_email($id) {
+
+
+        App::uses('CakeEmail', 'Network/Email');
+
+        $Email = new CakeEmail();
+        $Email->config('gmail');
+        $Email->template('servicos');
+
+        $Email->to('domingos.adj@gmail.com');
+        $Email->subject('TEste');
+        pr($Email->send('Aqui'));
+        die;
+
+//        $Email = new CakeEmail();
+//        $Email->emailFormat('html');
+//        $Email->to('bob@example.com');
+//        $Email->from('domingos.adj@gmail.com');
+//        $Email->viewVars(array('value' => 12345));
+//        $Email->send();
+        $this->autoRender = false;
+    }
+
     private function createInputsServico($id, $data = array()) {
         $this->TipoServico->contain(array());
         $tipos = $this->TipoServico->findById($id);
@@ -103,10 +126,10 @@ class SolicitacaoServicosController extends AppController {
                         $setting['options'] = $this->Estado->find('list', array('fields' => array('sigla', 'sigla'), 'order' => 'sigla ASC'));
                     }
                 }
-                
+
                 $setting['div'] = false;
                 $setting['class'] = 'form-control';
-                
+
                 $inputs .= '<div class="col-lg-6">';
                 $inputs .= $form->input('DadoDocumento.' . $field, $setting);
                 $inputs .= '</div>';
