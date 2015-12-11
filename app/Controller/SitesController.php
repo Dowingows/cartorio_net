@@ -19,7 +19,7 @@ class SitesController extends AppController {
     public function beforeFilter() {
         parent::beforeRender();
         $this->Auth->allow('index', 'sigle_page', 'servico_advogado', 'contato');
-        $this->Security->unlockedActions = array('servicos');
+        $this->Security->unlockedActions = array('servicos','edit_slider');
 
         $setting = $this->Setting->find('first');
         $this->set("setting", $setting['Setting']);
@@ -34,7 +34,9 @@ class SitesController extends AppController {
         $data = $this->Page->findById(1);
         $json = $data['Page']['content'];
         $content = json_decode($json);
-
+        
+        $slider = $this->Setting->getImageSlider();
+        $this->set('slider',$slider);
         $this->set("content", $content);
         $this->layout = "site";
     }
@@ -52,8 +54,16 @@ class SitesController extends AppController {
     }
     
     public function edit_slider(){
-//        pr($this->request->data);die;
-        $list = array();
+ 
+        if($this->request->isPost()){
+            $images= array();
+            if(!empty($this->request->data['Setting'])){
+                $images=$this->request->data['Setting'];
+            }
+            $this->Setting->saveImages($images);
+        }
+        
+        $gallery = array();
         $path = Router::url("/" . $this->Repository->folder . "/");
 
         $repository = $this->Repository->find('all');
@@ -61,7 +71,7 @@ class SitesController extends AppController {
         foreach ($repository as $file) {
             $url = $path . $file['Repository']['file_name'];
 
-            $list[] = array(
+            $gallery[] = array(
                 'image' => $url,
                 'thumb' => $url,
                 'folder' => 'Imagens',
@@ -69,7 +79,12 @@ class SitesController extends AppController {
             );
         }
         
-        $this->set('list',$list);
+        
+        $slider_images = $this->Setting->getImageSlider();
+        $this->set('slider',$slider_images);
+        $this->set('gallery',$gallery);
+        
+        
 
     }
     
