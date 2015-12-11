@@ -55,6 +55,7 @@ class SolicitacaoServicosController extends AppController {
             $this->SolicitacaoServico->create($this->request->data);
             if ($this->SolicitacaoServico->saveAll($this->request->data, array('validate' => 'only'))) {
                 if ($this->SolicitacaoServico->saveAll($this->request->data, array('validate' => false))) {
+                    $this->send_email($this->SolicitacaoServico->getLastInsertID);
                     $this->setMessage('saveSuccess', 'SolicitacaoServico');
                     $this->request->data = array();
                 } else
@@ -80,27 +81,27 @@ class SolicitacaoServicosController extends AppController {
         $this->layout = "site";
     }
 
-    public function send_email($id) {
+    public function resend_email($id) {
+        return $this->send_email($id);
+    }
 
+    private function send_email($id) {
 
+        $solicitacao = $this->SolicitacaoServico->getSolicitacao($id);
+        $this->autoRender = false;
         App::uses('CakeEmail', 'Network/Email');
 
         $Email = new CakeEmail();
         $Email->config('gmail');
-        $Email->template('servicos');
+        $Email->template('servicos', null);
+        $Email->viewVars(array('solicitacao' => $solicitacao));
+
+
 
         $Email->to('domingos.adj@gmail.com');
+        $Email->emailFormat('html');
         $Email->subject('TEste');
-        pr($Email->send('Aqui'));
-        die;
-
-//        $Email = new CakeEmail();
-//        $Email->emailFormat('html');
-//        $Email->to('bob@example.com');
-//        $Email->from('domingos.adj@gmail.com');
-//        $Email->viewVars(array('value' => 12345));
-//        $Email->send();
-        $this->autoRender = false;
+        return $Email->send('Aqui');
     }
 
     private function createInputsServico($id, $data = array()) {
