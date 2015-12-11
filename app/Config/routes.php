@@ -31,6 +31,8 @@
         
 	Router::connect('/solicitar-certidao', array('controller' => 'SolicitacaoServicos', 'action' => 'solicitar_servico'));
         
+	Router::connect('/servicos-para-advogado', array('controller' => 'Sites', 'action' => 'servico_advogado'));
+	Router::connect('/contato', array('controller' => 'Sites', 'action' => 'contato'));
         
         
         Router::connect('/admin/users',

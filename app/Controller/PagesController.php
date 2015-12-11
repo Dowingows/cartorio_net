@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Static content controller.
  *
@@ -18,7 +19,6 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-
 App::uses('AppController', 'Controller');
 
 /**
@@ -31,59 +31,71 @@ App::uses('AppController', 'Controller');
  */
 class PagesController extends AppController {
 
-/**
- * Controller name
- *
- * @var string
- */
-	public $name = 'Pages';
+    /**
+     * Controller name
+     *
+     * @var string
+     */
+    public $name = 'Pages';
 
-/**
- * Default helper
- *
- * @var array
- */
-	public $helpers = array('Html', 'Session');
+    /**
+     * Default helper
+     *
+     * @var array
+     */
+    public $helpers = array('Html', 'Session');
 
-/**
- * This controller does not use a model
- *
- * @var array
- */
-	public $uses = array('Setting');
+    /**
+     * This controller does not use a model
+     *
+     * @var array
+     */
+    public $uses = array('Setting');
 
-/**
- * Displays a view
- *
- * @param mixed What page to display
- * @return void
- */
-	public function display() {
-		$path = func_get_args();
+    /**
+     * Displays a view
+     *
+     * @param mixed What page to display
+     * @return void
+     */
+    public function beforeFilter() {
+        parent::beforeFilter();
 
-		$count = count($path);
-		if (!$count) {
-			$this->redirect('/');
-		}
-		$page = $subpage = $title_for_layout = null;
+        $setting = $this->Setting->find('first');
+        $this->set("setting", $setting['Setting']);
+        
+        $data['Page']['title'] = '';
+        $data['Page']['description'] = '';
+        $this->set('data', $data);
+    }
 
-		if (!empty($path[0])) {
-			$page = $path[0];
-		}
-		if (!empty($path[1])) {
-			$subpage = $path[1];
-		}
-		if (!empty($path[$count - 1])) {
-			$title_for_layout = Inflector::humanize($path[$count - 1]);
-		}
-                
-                
-                $setting = $this->Setting->find('first');
-		
-                $this->set('setting',$setting);
-                $this->set(compact('page', 'subpage', 'title_for_layout'));
-                
-                
-		$this->render(implode('/', $path));
-	}
+    public function display() {
+        $path = func_get_args();
+
+        $count = count($path);
+        if (!$count) {
+            $this->redirect('/');
+        }
+        $page = $subpage = $title_for_layout = null;
+
+        if (!empty($path[0])) {
+            $page = $path[0];
+        }
+        if (!empty($path[1])) {
+            $subpage = $path[1];
+        }
+        if (!empty($path[$count - 1])) {
+            $title_for_layout = Inflector::humanize($path[$count - 1]);
+        }
+
+
+        $setting = $this->Setting->find('first');
+
+        $this->set('setting', $setting);
+        $this->set(compact('page', 'subpage', 'title_for_layout'));
+
+
+        $this->render(implode('/', $path));
+    }
+
 }

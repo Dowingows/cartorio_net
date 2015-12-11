@@ -1,6 +1,6 @@
 <?= $this->Html->script(array('ckeditor/ckeditor.js')); ?>
 <?= $this->Html->script(array('ckeditor/pt-br.js')); ?>
-<? 
+<?php
 	print $this->Form->create( 'Page');
 ?>
 
