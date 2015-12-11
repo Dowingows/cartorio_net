@@ -24,7 +24,7 @@
     <meta property="og:image" content="<?= $this->Html->url('/img/logo3.png', true); ?>" />
 
 
-    <?= $this->Html->css(array('bootstrap/bootstrap.min')); ?>
+    <?php //echo $this->Html->css(array('bootstrap/bootstrap.min')); ?>
     
     <?= $this->Html->css(array('cartorio/grid'))?>
     <?= $this->Html->css(array('cartorio/style'))?>
@@ -83,24 +83,38 @@
     .icon {
       background: #4A4C4D; 
     }
-    .fa-map-marker{
+    /*.fa-map-marker{
       color:#F89830;
     }
 
-    .fa-phone{
-      color: #9A9FA3;
+    .fa-file-text-o{
+      color: #EA8015;
     }
 
-    .icon:before {
-      background: #4A4C4D;
+    .fa-search{
+      color: #EA8015;
     }
+
+    .fa-group{
+      color: #EA8015;
+    }
+
+    .fa-thumbs-up{
+      color: #EA8015;
+    }*/
     
+    
+    
+    .icon:before {
+      background: rgb(234, 128, 21);
+    }
+   
 
     header {
-        background: #434547;
+        background: rgb(0, 0, 0);
     }
     .stuck_container {
-      background: #F89830;
+      background: rgb(234, 128, 21);
     }
 
     .info-box {
@@ -140,6 +154,9 @@
       color: #777777;
     }
 
+    .btn {
+      background: rgb(234, 128, 21);
+    }
    @media (max-width: 767px) {
     .product-list li .box_aside {
         float: none;

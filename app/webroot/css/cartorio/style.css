@@ -408,7 +408,7 @@ p + .btn_wr {
 }
 .btn:hover,
 .btn2:hover {
-  background: #F89830;
+  background: rgb(234, 128, 21);
 }
 .btn:active,
 .btn2:active {
