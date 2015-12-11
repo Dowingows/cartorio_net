@@ -10,7 +10,7 @@ class SitesController extends AppController {
     public $name = "Sites";
     public $setMenu = "Sites";
     public $submenu = array('page_index', 'page_add');
-    public $uses = array('Setting', 'Page', 'SolicitacaoServico', 'TipoServico');
+    public $uses = array('Setting', 'Page', 'SolicitacaoServico', 'TipoServico','Repository');
 
     /* ----------------------------------------
      * Actions
@@ -18,18 +18,22 @@ class SitesController extends AppController {
 
     public function beforeFilter() {
         parent::beforeRender();
-        $this->Auth->allow('index', 'sigle_page');
+        $this->Auth->allow('index', 'sigle_page', 'servico_advogado', 'contato');
         $this->Security->unlockedActions = array('servicos');
 
         $setting = $this->Setting->find('first');
         $this->set("setting", $setting['Setting']);
+        $data=array();
+        $data['Page']['title'] ='';
+        $data['Page']['description'] ='';
+        $this->set('data',$data);
     }
 
     public function index() {
 
         $data = $this->Page->findById(1);
         $json = $data['Page']['content'];
-        $content = json_decode($json); 
+        $content = json_decode($json);
 
         $this->set("content", $content);
         $this->layout = "site";
@@ -43,6 +47,32 @@ class SitesController extends AppController {
         $this->layout = "site";
     }
 
+    public function contato() {
+        $this->layout = "site";
+    }
+    
+    public function edit_slider(){
+//        pr($this->request->data);die;
+        $list = array();
+        $path = Router::url("/" . $this->Repository->folder . "/");
+
+        $repository = $this->Repository->find('all');
+
+        foreach ($repository as $file) {
+            $url = $path . $file['Repository']['file_name'];
+
+            $list[] = array(
+                'image' => $url,
+                'thumb' => $url,
+                'folder' => 'Imagens',
+                'label' => $file['Repository']['name'],
+            );
+        }
+        
+        $this->set('list',$list);
+
+    }
+    
     public function page_index() {
         $this->set("pages", $this->paginate("Page"));
     }
@@ -51,9 +81,13 @@ class SitesController extends AppController {
         
     }
 
+    public function servico_advogado() {
+        $this->layout = "site";
+    }
+
     public function page_edit($id) {
         if (!$this->request->isPut()) {
-            if ($id == 1){
+            if ($id == 1) {
                 $this->redirect(array('controller' => $this->name, 'action' => 'home_edit'));
             }
 
@@ -73,7 +107,7 @@ class SitesController extends AppController {
         }
     }
 
-    public function home_edit(){
+    public function home_edit() {
 
         if (!$this->request->isPost()) {
             $data = $this->Page->findById(1);
@@ -81,9 +115,9 @@ class SitesController extends AppController {
             $json = $data['Page']['content'];
 
             $content = json_decode($json);
-            
+
             $this->set("content", $content);
-        }else{
+        } else {
             $json;
             $data = $this->request->data;
 
@@ -108,7 +142,7 @@ class SitesController extends AppController {
 
 
             $data['Page']['content'] = $json;
-            
+
 
             $this->Page->create($data);
             $this->Page->id = 1;
@@ -124,9 +158,7 @@ class SitesController extends AppController {
                 $this->setMessage('validateError');
 
             //pr($json);
-            
-        }   
-
+        }
     }
 
 }

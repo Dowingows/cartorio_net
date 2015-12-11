@@ -192,9 +192,10 @@
                 <li><a href="#">Serviços</a>
                 </li>
                 <li><?= $this->Html->link('Solicite a sua certidão','/solicitar-certidao')?></li>
-                <li><?= $this->Html->link('Serviços para Advogados','#')?></li>
-                </li>
-                <li><a href="#">Contato</a></li>
+                <li><?= $this->Html->link('Serviços para Advogados','/servicos-para-advogado')?></li>
+                <li><?= $this->Html->link('Contato','/contato')?></li>
+
+                <!--<li><a href="#">Contato</a></li>-->
                 <!--<li><a href="#">FAQ</a></li>-->
               </ul>
             </nav>

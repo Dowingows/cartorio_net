@@ -21,6 +21,13 @@ class SolicitacaoServicosController extends AppController {
         parent::beforeRender();
         $this->Auth->allow('solicitar_servico', 'getFieldsServico', 'getMunicipiosByUFAjax');
         $this->Security->unlockedActions = array('solicitar_servico');
+        
+        $setting = $this->Setting->find('first');
+        $this->set("setting", $setting['Setting']);
+        $data=array();
+        $data['Page']['title'] ='';
+        $data['Page']['description'] ='';
+        $this->set('data',$data);
     }
 
     public function view_solicitacao($id) {
