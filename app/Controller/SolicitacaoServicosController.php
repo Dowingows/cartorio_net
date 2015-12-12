@@ -67,7 +67,7 @@ class SolicitacaoServicosController extends AppController {
         }
 
         $estados = $this->Estado->find('list', array('fields' => array('sigla', 'sigla'), 'order' => 'sigla ASC'));
-        $this->set('tipos_servico', $this->TipoServico->find('list', array('order' => 'nome ASC')));
+        $this->set('tipos_servico', $this->TipoServico->find('list', array('order' => 'id ASC')));
         $this->set('servicos_', $this->TipoServico->find('list', array('order' => 'id ASC','limit'=>'15')));
         $this->set('estados', $estados);
         $documento = empty($this->request->data['DadoDocumento']) ? array() : $this->request->data['DadoDocumento'];
