@@ -12,9 +12,14 @@
 <fieldset>
     <legend>Imagens do Slider</legend>
     
-<select multiple="multiple" class="image-picker show-html">
-  <?php foreach($list as $image):  ?>
-    <option data-img-src="<?= $image['image']?>" value="<?= $image['image']?>"><?= $image['label']?></option>
+<select name="Setting[]" multiple="multiple" class="image-picker show-html">
+  <?php foreach($gallery as $image):  ?>
+   <?php $select = '' ;
+         if(in_array($image['image'], $slider)){
+             $select ='selected="selected"';
+         }
+   ?>
+    <option <?= $select ?> data-img-src="<?= $image['image']?>" value="<?= $image['image']?>"><?= $image['label']?></option>
   <?php endforeach; ?>
 </select>
 </fieldset>

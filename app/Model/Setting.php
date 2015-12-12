@@ -29,4 +29,22 @@ class Setting extends AppModel {
         ),
     );
 
+    public function saveImages($img) {
+        $string_img = '';
+        $setting = $this->find('first');
+        $this->id = $setting['Setting']['id'];
+        if (!empty($img)) {
+            $string_img = implode(',', $img);
+        }
+        return $this->saveField('slider_images', $string_img);
+    }
+
+    public function getImageSlider() {
+
+        $setting = $this->find('first', array('fields' => 'slider_images'));
+        $string_img = $setting['Setting']['slider_images'];
+
+        return explode(',', $string_img);
+    }
+
 }
