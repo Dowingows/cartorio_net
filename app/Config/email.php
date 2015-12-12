@@ -55,7 +55,13 @@ class EmailConfig {
         'port' => 465,
         'username' => 'contato@gmail.com',
         'password' => 'passwd',
-        'transport' => 'Smtp'
+        'transport' => 'Smtp',
+        'context' => array(
+            'ssl' => array(
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true)
+        )
     );
     public $smtp = array(
         'transport' => 'Smtp',

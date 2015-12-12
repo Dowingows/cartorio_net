@@ -42,7 +42,7 @@
                 ?>
         <div class="btn-group">
         <?php
-	 	print $this->Form->button('Salvar', array( 'class' => 'btn btn-primary  btn-sm', 'div' => false, 'escape' => false ) );
+	 	print $this->Form->button('Enviar', array( 'class' => 'btn btn-primary  btn-sm', 'div' => false, 'escape' => false ) );
 	?>
         </div>
 	<div class="spinner"></div>

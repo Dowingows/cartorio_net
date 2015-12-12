@@ -83,7 +83,6 @@ class AppController extends Controller {
             if (!$this->Auth->user('pass_switched') && $this->action != 'manageAccount')
                 $this->redirect(array('controller' => 'users', 'action' => 'manageAccount'));
         }
-
     }
 
     /* ----------------------------------------
@@ -212,6 +211,14 @@ class AppController extends Controller {
             case "isWritable":
                 $str = "Você não tem permissão para enviar arquivos. Entre em contato com o administrador.";
                 $class = 'error';
+                break;
+            case "emailSuccess":
+                $str = "Email enviado com sucesso!";
+                $class = 'success';
+                break;
+            case "emailError":
+                $str = "Erro ao enviar email! Por favor, tente novamente!";
+                $class = 'danger';
                 break;
         }
 

@@ -14,20 +14,31 @@
 }
 
 .panel-default {
-    /*border-color: #434547;*/
+    border-color: #434547;
     background-color: #F1F1F1;
     color:#000;
     font-weight: bold;
+    padding-bottom: 20px;
 }
 
 .panel-default >.panel-heading {
     color: #FFF;
     background-color: #434547;
-    border-color: #ddd;
+    border-color: #434547;
     font-weight: bold;
     font-size: 18px;
 }
 
 .panel-default >.panel-heading > h6 {
+
     color: #FFF;
+}
+
+hr {
+    border-bottom: 3px solid #A5A8AB;
+}
+
+.stuck_container {
+    /*background: #F89830;*/
+    background: #E87529;
 }

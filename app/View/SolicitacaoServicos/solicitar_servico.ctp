@@ -9,9 +9,22 @@ print $this->Form->create("SolicitacaoServico", array("class" => "form-horizonta
             <h2>Solicite sua certidão</h2>
             <hr>
             <?= $this->FrontEnd->message(); ?>
-            <div class="col-lg-1"></div>
-            <div class="col-lg-10">
-                <div class="row">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div style="padding-left: 25px;">
+                        <h2>Certidões</h2>
+                        <p><img alt="" src="http://condominiodofuturo.com/wp-content/uploads/2013/01/Certidoes_Gerais_1.jpg" style="height:198px; width:300px"></p>
+                        <br/>                        
+
+                        <p align="justify" style="font-weight: bold;">
+                            Solicite a sua certidão agora no Cartórionet.
+                        </p>
+                        <p align="justify" style="font-weight: bold;">
+                           É Simples, rápido e seguro.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-8">
                     <div class="panel panel-default">
                         <div class="panel-heading">Dados do Solicitante</div>
                         <div class="panel-body">
@@ -49,8 +62,10 @@ print $this->Form->create("SolicitacaoServico", array("class" => "form-horizonta
                         </div>
                     </div>
                 </div>
-
-                <div class="row">
+            </div>
+            <div class="row">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-8">
                     <div class="panel panel-default">
                         <div class="panel-heading">Endereço de Entrega</div>
                         <div class="panel-body">
@@ -78,8 +93,12 @@ print $this->Form->create("SolicitacaoServico", array("class" => "form-horizonta
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="row">
+            <div class="row">
+                <div class="col-lg-4"></div>
+
+                <div class="col-lg-8">
                     <div class="panel panel-default">
                         <div class="panel-heading">Dados do documento</div>
                         <div class="panel-body">
@@ -99,7 +118,10 @@ print $this->Form->create("SolicitacaoServico", array("class" => "form-horizonta
                         </div>
                     </div>
                 </div>
-                <div class="row">
+            </div>
+            <div class="row">    
+                <div class="col-lg-4"></div>
+                <div class="col-lg-8">
                     <?= $this->element("submit3", array('cancel' => '/servicos')) ?>
                 </div>
             </div>

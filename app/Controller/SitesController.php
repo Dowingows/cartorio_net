@@ -10,7 +10,7 @@ class SitesController extends AppController {
     public $name = "Sites";
     public $setMenu = "Sites";
     public $submenu = array('page_index', 'page_add');
-    public $uses = array('Setting', 'Page', 'SolicitacaoServico', 'TipoServico', 'Repository');
+    public $uses = array('Setting', 'Page', 'SolicitacaoServico', 'TipoServico', 'Repository', 'Contato');
 
     /* ----------------------------------------
      * Actions
@@ -19,7 +19,7 @@ class SitesController extends AppController {
     public function beforeFilter() {
         parent::beforeRender();
         $this->Auth->allow('index', 'sigle_page', 'servico_advogado', 'contato');
-        $this->Security->unlockedActions = array('servicos', 'edit_slider');
+        $this->Security->unlockedActions = array('servicos', 'edit_slider', 'contato', 'servico_advogado');
 
         $setting = $this->Setting->find('first');
         $this->set("setting", $setting['Setting']);
@@ -50,6 +50,37 @@ class SitesController extends AppController {
     }
 
     public function contato() {
+        if ($this->request->isPost()) {
+            $this->Contato->create($this->request->data);
+            if ($this->Contato->validates()) {
+                if ($this->Contato->sendEmail()) {
+                    $this->request->data = array();
+                    $this->setMessage('emailSuccess');
+                } else {
+                    $this->setMessage('emailError');
+                }
+            } else {
+                $this->setMessage('validateError', null, 3);
+            }
+        }
+        $this->layout = "site";
+    }
+
+    public function servico_advogado() {
+        if ($this->request->isPost()) {
+            $this->request->data['Contato']['subject'] = "Serviço para Advogado; ";
+            $this->Contato->create($this->request->data);
+            if ($this->Contato->validates()) {
+                if ($this->Contato->sendEmail()) {
+                    $this->request->data = array();
+                    $this->setMessage('emailSuccess');
+                } else {
+                    $this->setMessage('emailError');
+                }
+            } else {
+                $this->setMessage('validateError', null, 3);
+            }
+        }
         $this->layout = "site";
     }
 
@@ -78,7 +109,7 @@ class SitesController extends AppController {
                 'label' => $file['Repository']['name'],
             );
         }
-        
+
         $slider_images = $this->Setting->getImageSlider();
         $this->set('slider', $slider_images);
         $this->set('gallery', $gallery);
@@ -90,10 +121,6 @@ class SitesController extends AppController {
 
     public function page_add() {
         
-    }
-
-    public function servico_advogado() {
-        $this->layout = "site";
     }
 
     public function page_edit($id) {

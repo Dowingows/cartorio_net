@@ -25,6 +25,7 @@
 
     <?php if($this->action == 'solicitar_servico' || $this->action == 'servico_advogado' || $this->action =='contato') :?>
         <?= $this->Html->css(array('bootstrap/bootstrap.min')); ?>
+        
     <?php endif; ?>
     
     <?= $this->Html->css(array('cartorio/grid'))?>
@@ -32,8 +33,9 @@
     
     <?= $this->Html->script(array('cartorio/jquery'))?>
     <?= $this->Html->script(array('cartorio/jquery-migrate-1.2.1'))?>
-   
-  
+    <?php if($this->action == 'solicitar_servico' || $this->action == 'servico_advogado' || $this->action =='contato') :?>
+    <?= $this->Html->script(array('bootstrap/bootstrap.min')); ?>
+   <?php endif; ?>
         <!--[if lt IE 9]>
     <html class="lt-ie9">
       <div style="clear: both; text-align:center; position: relative;"><a href="http://windows.microsoft.com/en-US/internet-explorer/.."><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
@@ -102,9 +104,23 @@
     }
     .stuck_container {
       /*background: #F89830;*/
-      background: #F2871B;
+      /*background: #F2871B;*/
+      background: #E87529;
     }
-
+    
+    .sf-menu > li.active > a {
+        color: #fff;
+        background: #CC6017;
+        border-right: 1px solid #A5A8AB;
+        border-left: 1px solid #A5A8AB;
+    }
+    
+    .sf-menu > li.sfHover > a, .sf-menu > li > a:hover {
+        color: #fff;
+        background: #F6981E;
+        border-right: 1px solid #BDBDBD;  
+    }
+    
     .info-box {
       background: #434547;
     }
@@ -141,7 +157,9 @@
     .well1 a:hover {
       color: #777777;
     }
-
+    
+  
+    
    @media (max-width: 767px) {
     .product-list li .box_aside {
         float: none;
