@@ -17,7 +17,7 @@
           </div>    
         </section>
         <section>
-          <div class="container banner_wr editable2">
+          <div class="container banner_wr">
             <ul class="banner">
             <?php if (!empty($content)):?>
               <?php foreach ($content->bloco01 as $key => $value): ?>
@@ -40,7 +40,13 @@
                   <h3><?= $value->title?></h3>
                   <div class="editable">
                       <p><?= $value->content?></p>
-                      <a href="#"></a>
+
+                      <?php if ($key != 3){?>
+                        <a href="#" class="btn_call_action"></a>
+                      <?php } else {?>
+                          <a href="#" class="btn">Peça Já!</a>
+                        <?php } ?>
+
                   </div>
                 
                 </li>

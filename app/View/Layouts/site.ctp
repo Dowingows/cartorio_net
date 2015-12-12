@@ -28,9 +28,13 @@
     
     <?= $this->Html->css(array('cartorio/grid'))?>
     <?= $this->Html->css(array('cartorio/style'))?>
+    <?= $this->Html->css(array('cartorio/camera'))?>
+    <?= $this->Html->css(array('cartorio/owl-carousel'))?>
+    
     
     <?= $this->Html->script(array('cartorio/jquery'))?>
     <?= $this->Html->script(array('cartorio/jquery-migrate-1.2.1'))?>
+    <?= $this->Html->script(array('cartorio/device.min'))?>
     <?= $this->Html->script(array('bootstrap/bootstrap.min')); ?>
   
         <!--[if lt IE 9]>
@@ -71,48 +75,61 @@
       background: #434547;
     }
     .banner li:nth-child(2) {
-      background: #4A4C4D;
+      background: rgba(67, 69, 71, 0.98);
     }
     .banner li:nth-child(3) {
-      background: #434547;
+      background: rgba(67, 69, 71, 0.95);
     }
     .banner li:nth-child(4) {
-      background: #4A4C4D;
+      background: rgba(67, 69, 71, 0.93);
     }
 
     .icon {
       background: #4A4C4D; 
     }
-    /*.fa-map-marker{
+
+    .fa-facebook{
       color:#F89830;
     }
 
-    .fa-file-text-o{
+    .fa-envelope{
       color: #EA8015;
     }
 
-    .fa-search{
+    .fa-fax{
       color: #EA8015;
     }
 
-    .fa-group{
+    .fa-twitter{
       color: #EA8015;
     }
 
-    .fa-thumbs-up{
+    .fa-map-marker{
       color: #EA8015;
-    }*/
+    }
     
+    .fa-phone{
+      color: #EA8015;
+    }
     
     
     .icon:before {
-      background: rgb(234, 128, 21);
+      background: #434547;
     }
    
 
     header {
         background: rgb(0, 0, 0);
     }
+
+    .sf-menu > li.active > a {
+      background: rgb(234, 128, 21);
+    }
+
+    menu > li > a:hover {
+        background: rgb(242, 149, 30);
+    }
+
     .stuck_container {
       background: rgb(234, 128, 21);
     }
@@ -154,15 +171,82 @@
       color: #777777;
     }
 
+    .banner li:hover {
+      margin-top: 0px;
+      height: 388px;
+      padding-bottom: 50px;
+    }
+    .banner li [class*="fa-"] {
+      font-size: 62px;
+      line-height: 1;
+      color: inherit;
+    }
+    .banner li a {
+      position: absolute;
+      bottom: 26px;
+      right: -30px;
+    }
+
+    .banner li:nth-child(4) a {
+      position: absolute;
+      bottom: 26px;
+      right: 30px;
+    }
+
+    .banner li a:before {
+      font-family: "FontAwesome";
+      font-size: 19px;
+      line-height: 1;
+      color: inherit;
+      content: "";
+    }
+
+    .banner li:nth-child(4) a:before {
+      content: "";
+    }
+
+    .banner li a:hover {
+      opacity: .7;
+    }
+
+    .banner li:nth-child(4) a:hover {
+      opacity: 30;
+    }
+
+    .banner li:hover a {
+      right: 30px;
+    }
+
+    .banner li a {
+        right: 20px;
+    }
+
+    .banner li:nth-child(4) a {
+        right: 70px;
+    }
+
     .btn {
       background: rgb(234, 128, 21);
     }
-   @media (max-width: 767px) {
-    .product-list li .box_aside {
-        float: none;
-        background-color: ;
+     @media (max-width: 767px) {
+      .product-list li .box_aside {
+          float: none;
+          background-color: ;
+      }
     }
-  }
+
+    h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+        color: rgb(234, 128, 21);
+    }
+    
+    footer {
+      background: rgb(0, 0, 0);
+    }
+
+    .icon2:before {
+      background: rgba(0, 0, 0, 0.78)
+    }
+
 
     </style>
   </head>
