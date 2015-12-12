@@ -12,3 +12,22 @@
 .help-inline{
     color:red;
 }
+
+.panel-default {
+    /*border-color: #434547;*/
+    background-color: #F1F1F1;
+    color:#000;
+    font-weight: bold;
+}
+
+.panel-default >.panel-heading {
+    color: #FFF;
+    background-color: #434547;
+    border-color: #ddd;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.panel-default >.panel-heading > h6 {
+    color: #FFF;
+}

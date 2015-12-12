@@ -98,10 +98,11 @@
     
 
     header {
-        background: #434547;
+        background: #FFFFFF;
     }
     .stuck_container {
-      background: #F89830;
+      /*background: #F89830;*/
+      background: #F2871B;
     }
 
     .info-box {

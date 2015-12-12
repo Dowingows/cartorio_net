@@ -2,15 +2,18 @@
 <?php
 print $this->Form->create("SolicitacaoServico", array("class" => "form-horizontal", 'novalidate'));
 ?>
+
 <main class="mobile-center">
     <section>
         <div class="container hr well1 ins2">
-               <?= $this->FrontEnd->message(); ?>
+            <h2>Solicite sua certidão</h2>
+            <hr>
+            <?= $this->FrontEnd->message(); ?>
             <div class="col-lg-1"></div>
             <div class="col-lg-10">
                 <div class="row">
                     <div class="panel panel-default">
-                        <div class="panel-heading"><h4>Dados do Solicitante</h4></div>
+                        <div class="panel-heading">Dados do Solicitante</div>
                         <div class="panel-body">
                             <div class="col-lg-12">
                                 <h6>Preencha as informações abaixo para iniciar o seu Pedido de Certidão.</h6> 
@@ -46,56 +49,56 @@ print $this->Form->create("SolicitacaoServico", array("class" => "form-horizonta
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="row">
-                 <div class="panel panel-default">
-                        <div class="panel-heading"><h4>Endereço de Entrega</h4></div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Endereço de Entrega</div>
                         <div class="panel-body">
                             <div class="col-lg-6">
-                                <?= $this->BForm->input('SolicitacaoServico.endereco_entrega', array("label" => 'Endereco', 'div' => false, 'class' => 'form-control'));?>
+                                <?= $this->BForm->input('SolicitacaoServico.endereco_entrega', array("label" => 'Endereco', 'div' => false, 'class' => 'form-control')); ?>
                             </div>
                             <div class="col-lg-6">
-                                <?= $this->BForm->input('SolicitacaoServico.numero_entrega', array("label" => 'N&uacute;mero', 'required' => false, 'div' => false, 'class' => 'form-control'));?>
+                                <?= $this->BForm->input('SolicitacaoServico.numero_entrega', array("label" => 'N&uacute;mero', 'required' => false, 'div' => false, 'class' => 'form-control')); ?>
                             </div>
                             <div class="col-lg-6">
-                                <?= $this->BForm->input('SolicitacaoServico.complemento_entrega', array("label" => 'Complemento', 'required' => false, 'div' => false, 'class' => 'form-control'));?>
+                                <?= $this->BForm->input('SolicitacaoServico.complemento_entrega', array("label" => 'Complemento', 'required' => false, 'div' => false, 'class' => 'form-control')); ?>
                             </div>
                             <div class="col-lg-6">
-                                <?= $this->BForm->input('SolicitacaoServico.bairro_entrega', array("label" => 'Bairro', 'required' => false, 'div' => false, 'class' => 'form-control'));?>
+                                <?= $this->BForm->input('SolicitacaoServico.bairro_entrega', array("label" => 'Bairro', 'required' => false, 'div' => false, 'class' => 'form-control')); ?>
                             </div>
                             <div class="col-lg-6">
-                                <?= $this->BForm->input('SolicitacaoServico.cep_entrega', array("label" => 'CEP', 'div' => false, 'class' => 'form-control'));?>
+                                <?= $this->BForm->input('SolicitacaoServico.cep_entrega', array("label" => 'CEP', 'div' => false, 'class' => 'form-control')); ?>
                             </div>
                             <div class="col-lg-6">
-                                <?= $this->BForm->input('SolicitacaoServico.estado_entrega', array("label" => 'Estado', 'type' => 'select', 'options' => $estados, 'empty' => '-- Selecione um estado -- ', 'div' => false, 'class' => 'form-control'));?>
+                                <?= $this->BForm->input('SolicitacaoServico.estado_entrega', array("label" => 'Estado', 'type' => 'select', 'options' => $estados, 'empty' => '-- Selecione um estado -- ', 'div' => false, 'class' => 'form-control')); ?>
                             </div>                
                             <div class="col-lg-6">
-                                <?= $this->BForm->input('SolicitacaoServico.cidade_entrega', array("label" => 'Cidade', 'type' => 'select', 'empty' => '-- Selecione uma cidade --', 'div' => false, 'class' => 'form-control'));?>
+                                <?= $this->BForm->input('SolicitacaoServico.cidade_entrega', array("label" => 'Cidade', 'type' => 'select', 'empty' => '-- Selecione uma cidade --', 'div' => false, 'class' => 'form-control')); ?>
                             </div>
                         </div>
-                 </div>
-                </div>
-             
-                 <div class="row">
-                    <div class="panel panel-default">
-                           <div class="panel-heading"><h4>Dados do documento</h4></div>
-                           <div class="panel-body">
-                               <div class="col-lg-6">
-                                 <?= $this->BForm->input('DadoDocumento.tipo_servico_id', array("label" => 'Serviço', 'options' => $tipos_servico, 'type' => 'select', 'empty' => '-- Selecione o Serviço --', 'div' => false, 'class' => 'form-control')); ?>   
-                               </div>
-                               <div class="col-lg-6">
-                                 <?= $this->BForm->input('DadoDocumento.regiao', array("label" => 'Região', 'type' => 'select', 'div' => false, 'class' => 'form-control')); ?>  
-                               </div>
-                               <div id="document_fields">
-                                    <?= $inputs ?>
-                               </div>
-                               <div class="col-lg-12">
-                                    <?= $this->BForm->input('DadoDocumento.observacao', array("label" => 'Observação', 'type' => 'textarea', 'required' => false, 'div' => false, 'class' => 'form-control')); ?>
-                                   
-                               </div>
-                           </div>
                     </div>
-                 </div>
+                </div>
+
+                <div class="row">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Dados do documento</div>
+                        <div class="panel-body">
+                            <div class="col-lg-6">
+                                <?= $this->BForm->input('DadoDocumento.tipo_servico_id', array("label" => 'Serviço', 'options' => $tipos_servico, 'type' => 'select', 'empty' => '-- Selecione o Serviço --', 'div' => false, 'class' => 'form-control')); ?>   
+                            </div>
+                            <div class="col-lg-6">
+                                <?= $this->BForm->input('DadoDocumento.regiao', array("label" => 'Região', 'type' => 'select', 'div' => false, 'class' => 'form-control')); ?>  
+                            </div>
+                            <div id="document_fields">
+                                <?= $inputs ?>
+                            </div>
+                            <div class="col-lg-12">
+                                <?= $this->BForm->input('DadoDocumento.observacao', array("label" => 'Observação', 'type' => 'textarea', 'required' => false, 'div' => false, 'class' => 'form-control')); ?>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
                     <?= $this->element("submit3", array('cancel' => '/servicos')) ?>
                 </div>

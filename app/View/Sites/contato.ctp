@@ -6,16 +6,14 @@ print $this->Form->create("Contato", array("class" => "form-horizontal", 'novali
     <section>
         <div class="container hr well1 ins2">
             <?= $this->FrontEnd->message(); ?>
-            <div class="row" align="center">
-                <h2>Contato</h2>
-            </div>
-            <br/>
+            <h2>Contato</h2>
+            <hr>
            
             <div class="col-lg-1"></div>
             <div class="col-lg-10">
                 <div class="row">
                      <div class="panel panel-default">
-                        <div class="panel-heading"><h6>Atendimento ao cliente</h6></div>
+                        <div class="panel-heading">Entre em contato conosco</div>
                         <div class="panel-body">
                         <div class="form-group">
                             <div class="col-lg-6">
