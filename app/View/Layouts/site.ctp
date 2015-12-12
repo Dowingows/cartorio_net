@@ -23,15 +23,16 @@
     <meta property="og:url" content="<?= 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>" />
     <meta property="og:image" content="<?= $this->Html->url('/img/logo3.png', true); ?>" />
 
-
-    <?= $this->Html->css(array('bootstrap/bootstrap.min')); ?>
+    <?php if($this->action == 'solicitar_servico' || $this->action == 'servico_advogado' || $this->action =='contato') :?>
+        <?= $this->Html->css(array('bootstrap/bootstrap.min')); ?>
+    <?php endif; ?>
     
     <?= $this->Html->css(array('cartorio/grid'))?>
     <?= $this->Html->css(array('cartorio/style'))?>
     
     <?= $this->Html->script(array('cartorio/jquery'))?>
     <?= $this->Html->script(array('cartorio/jquery-migrate-1.2.1'))?>
-    <?= $this->Html->script(array('bootstrap/bootstrap.min')); ?>
+   
   
         <!--[if lt IE 9]>
     <html class="lt-ie9">

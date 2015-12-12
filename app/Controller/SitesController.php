@@ -10,7 +10,7 @@ class SitesController extends AppController {
     public $name = "Sites";
     public $setMenu = "Sites";
     public $submenu = array('page_index', 'page_add');
-    public $uses = array('Setting', 'Page', 'SolicitacaoServico', 'TipoServico','Repository');
+    public $uses = array('Setting', 'Page', 'SolicitacaoServico', 'TipoServico', 'Repository');
 
     /* ----------------------------------------
      * Actions
@@ -19,14 +19,14 @@ class SitesController extends AppController {
     public function beforeFilter() {
         parent::beforeRender();
         $this->Auth->allow('index', 'sigle_page', 'servico_advogado', 'contato');
-        $this->Security->unlockedActions = array('servicos','edit_slider');
+        $this->Security->unlockedActions = array('servicos', 'edit_slider');
 
         $setting = $this->Setting->find('first');
         $this->set("setting", $setting['Setting']);
-        $data=array();
-        $data['Page']['title'] ='';
-        $data['Page']['description'] ='';
-        $this->set('data',$data);
+        $data = array();
+        $data['Page']['title'] = '';
+        $data['Page']['description'] = '';
+        $this->set('data', $data);
     }
 
     public function index() {
@@ -34,9 +34,9 @@ class SitesController extends AppController {
         $data = $this->Page->findById(1);
         $json = $data['Page']['content'];
         $content = json_decode($json);
-        
+
         $slider = $this->Setting->getImageSlider();
-        $this->set('slider',$slider);
+        $this->set('slider', $slider);
         $this->set("content", $content);
         $this->layout = "site";
     }
@@ -52,17 +52,17 @@ class SitesController extends AppController {
     public function contato() {
         $this->layout = "site";
     }
-    
-    public function edit_slider(){
- 
-        if($this->request->isPost()){
-            $images= array();
-            if(!empty($this->request->data['Setting'])){
-                $images=$this->request->data['Setting'];
+
+    public function edit_slider() {
+
+        if ($this->request->isPost()) {
+            $images = array();
+            if (!empty($this->request->data['Setting'])) {
+                $images = $this->request->data['Setting'];
             }
             $this->Setting->saveImages($images);
         }
-        
+
         $gallery = array();
         $path = Router::url("/" . $this->Repository->folder . "/");
 
@@ -79,15 +79,11 @@ class SitesController extends AppController {
             );
         }
         
-        
         $slider_images = $this->Setting->getImageSlider();
-        $this->set('slider',$slider_images);
-        $this->set('gallery',$gallery);
-        
-        
-
+        $this->set('slider', $slider_images);
+        $this->set('gallery', $gallery);
     }
-    
+
     public function page_index() {
         $this->set("pages", $this->paginate("Page"));
     }
