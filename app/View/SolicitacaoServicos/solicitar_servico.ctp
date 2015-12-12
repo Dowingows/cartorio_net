@@ -1,3 +1,4 @@
+
 <?= $this->Html->css(array('custom')) ?>
 <?php
 print $this->Form->create("SolicitacaoServico", array("class" => "form-horizontal", 'novalidate'));
@@ -20,69 +21,68 @@ print $this->Form->create("SolicitacaoServico", array("class" => "form-horizonta
                             Solicite a sua certidão agora no Cartórionet.
                         </p>
                         <p align="justify" style="font-weight: bold;">
-                           É Simples, rápido e seguro.
+                            É Simples, rápido e seguro.
                         </p>
                     </div>
+                    <?= $this->element('tipo_servicos', array('servicos' => $servicos_)) ?>
                 </div>
                 <div class="col-lg-8">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Dados do Solicitante</div>
-                        <div class="panel-body">
-                            <div class="col-lg-12">
-                                <h6>Preencha as informações abaixo para iniciar o seu Pedido de Certidão.</h6> 
-                                <span class="req">* Campos de preenchimento obrigatório.</span>
-                            </div>
-                            <div class="form-group" style="padding-left: 20px;padding-right: 20px;">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Dados do Solicitante</div>
+                            <div class="panel-body">
+                                <div class="col-lg-12">
+                                    <h6>Preencha as informações abaixo para iniciar o seu Pedido de Certidão.</h6> 
+                                    <span class="req">* Campos de preenchimento obrigatório.</span>
+                                </div>
+                                <div class="form-group" style="padding-left: 20px;padding-right: 20px;">
 
-                                <div class="col-lg-12">
-                                    <?= $this->BForm->input('SolicitacaoServico.nome_solicitante', array('label' => 'Nome', 'placeholder' => 'Nome ', 'div' => false, 'class' => 'form-control')); ?>
-                                </div>
-                                <div class="col-lg-6">
-                                    <?= $this->BForm->input('SolicitacaoServico.cpf_cnpj_solicitante', array("label" => 'CPF/CNPJ', 'placeholder' => 'CPF/CNPJ', 'div' => false, 'class' => 'form-control')); ?>
-                                </div>
-                                <div class="col-lg-6">
-                                    <?= $this->BForm->input('SolicitacaoServico.rg_solicitante', array("label" => 'RG', 'placeholder' => 'RG', 'required' => false, 'div' => false, 'class' => 'form-control')); ?>
-                                </div>
-                                <div class="col-lg-6">
-                                    <?= $this->BForm->input('SolicitacaoServico.telefone_1_solicitante', array("label" => 'Telefone 1', 'div' => false, 'class' => 'form-control')); ?> 
-                                </div >
-                                <div class="col-lg-6">
-                                    <?= $this->BForm->input('SolicitacaoServico.ramal_solicitante', array("label" => 'Ramal', 'required' => false, 'div' => false, 'class' => 'form-control')); ?>
-                                </div>
-                                <div class="col-lg-6">
-                                    <?= $this->BForm->input('SolicitacaoServico.telefone_2_solicitante', array("label" => 'Telefone 2', 'required' => false, 'div' => false, 'class' => 'form-control')); ?>
-                                </div>
-                                <div class="col-lg-6">
-                                    <?= $this->BForm->input('SolicitacaoServico.cel_solicitante', array("label" => 'Celular', 'required' => false, 'div' => false, 'class' => 'form-control')); ?>
-                                </div>
-                                <div class="col-lg-12">
-                                    <?= $this->BForm->input('SolicitacaoServico.email_solicitante', array("label" => 'Email', 'div' => false, 'class' => 'form-control')); ?>   
+                                    <div class="col-lg-12">
+                                        <?= $this->BForm->input('SolicitacaoServico.nome_solicitante', array('label' => 'Nome', 'placeholder' => 'Nome ', 'div' => false, 'class' => 'form-control')); ?>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <?= $this->BForm->input('SolicitacaoServico.cpf_cnpj_solicitante', array("label" => 'CPF/CNPJ', 'placeholder' => 'CPF/CNPJ', 'div' => false, 'class' => 'form-control')); ?>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <?= $this->BForm->input('SolicitacaoServico.rg_solicitante', array("label" => 'RG', 'placeholder' => 'RG', 'required' => false, 'div' => false, 'class' => 'form-control')); ?>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <?= $this->BForm->input('SolicitacaoServico.telefone_1_solicitante', array("label" => 'Telefone 1', 'placeholder' => 'Telefone', 'div' => false, 'class' => 'form-control')); ?> 
+                                    </div >
+                                    <div class="col-lg-6">
+                                        <?= $this->BForm->input('SolicitacaoServico.ramal_solicitante', array("label" => 'Ramal', 'placeholder' => 'Ramal', 'required' => false, 'div' => false, 'class' => 'form-control')); ?>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <?= $this->BForm->input('SolicitacaoServico.telefone_2_solicitante', array("label" => 'Telefone 2', 'placeholder' => 'Telefone', 'required' => false, 'div' => false, 'class' => 'form-control')); ?>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <?= $this->BForm->input('SolicitacaoServico.cel_solicitante', array("label" => 'Celular', 'placeholder' => 'Celular', 'required' => false, 'div' => false, 'class' => 'form-control')); ?>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <?= $this->BForm->input('SolicitacaoServico.email_solicitante', array("label" => 'Email', 'placeholder' => 'Email', 'div' => false, 'class' => 'form-control')); ?>   
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4"></div>
-                <div class="col-lg-8">
-                    <div class="panel panel-default">
+                    <div class="col-lg-12">
+                         <div class="panel panel-default">
                         <div class="panel-heading">Endereço de Entrega</div>
                         <div class="panel-body">
                             <div class="col-lg-6">
-                                <?= $this->BForm->input('SolicitacaoServico.endereco_entrega', array("label" => 'Endereco', 'div' => false, 'class' => 'form-control')); ?>
+                                <?= $this->BForm->input('SolicitacaoServico.endereco_entrega', array("label" => 'Endereco','placeholder'=>'Endereço' ,'div' => false, 'class' => 'form-control')); ?>
                             </div>
                             <div class="col-lg-6">
-                                <?= $this->BForm->input('SolicitacaoServico.numero_entrega', array("label" => 'N&uacute;mero', 'required' => false, 'div' => false, 'class' => 'form-control')); ?>
+                                <?= $this->BForm->input('SolicitacaoServico.numero_entrega', array("label" => 'N&uacute;mero','placeholder'=>'Número', 'required' => false, 'div' => false, 'class' => 'form-control')); ?>
                             </div>
                             <div class="col-lg-6">
-                                <?= $this->BForm->input('SolicitacaoServico.complemento_entrega', array("label" => 'Complemento', 'required' => false, 'div' => false, 'class' => 'form-control')); ?>
+                                <?= $this->BForm->input('SolicitacaoServico.complemento_entrega', array("label" => 'Complemento','placeholder'=>'Complemento', 'required' => false, 'div' => false, 'class' => 'form-control')); ?>
                             </div>
                             <div class="col-lg-6">
-                                <?= $this->BForm->input('SolicitacaoServico.bairro_entrega', array("label" => 'Bairro', 'required' => false, 'div' => false, 'class' => 'form-control')); ?>
+                                <?= $this->BForm->input('SolicitacaoServico.bairro_entrega', array("label" => 'Bairro','placeholder'=>'Bairro', 'required' => false, 'div' => false, 'class' => 'form-control')); ?>
                             </div>
                             <div class="col-lg-6">
-                                <?= $this->BForm->input('SolicitacaoServico.cep_entrega', array("label" => 'CEP', 'div' => false, 'class' => 'form-control')); ?>
+                                <?= $this->BForm->input('SolicitacaoServico.cep_entrega', array("label" => 'CEP','placeholder'=>'CEP', 'div' => false, 'class' => 'form-control')); ?>
                             </div>
                             <div class="col-lg-6">
                                 <?= $this->BForm->input('SolicitacaoServico.estado_entrega', array("label" => 'Estado', 'type' => 'select', 'options' => $estados, 'empty' => '-- Selecione um estado -- ', 'div' => false, 'class' => 'form-control')); ?>
@@ -92,14 +92,9 @@ print $this->Form->create("SolicitacaoServico", array("class" => "form-horizonta
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-4"></div>
-
-                <div class="col-lg-8">
-                    <div class="panel panel-default">
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
                         <div class="panel-heading">Dados do documento</div>
                         <div class="panel-body">
                             <div class="col-lg-6">
@@ -117,13 +112,28 @@ print $this->Form->create("SolicitacaoServico", array("class" => "form-horizonta
                             </div>
                         </div>
                     </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <?= $this->element("submit3", array('cancel' => '/servicos')) ?>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-8">
+                   
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4"></div>
+
+                <div class="col-lg-8">
+                    
                 </div>
             </div>
             <div class="row">    
-                <div class="col-lg-4"></div>
-                <div class="col-lg-8">
-                    <?= $this->element("submit3", array('cancel' => '/servicos')) ?>
-                </div>
+               
             </div>
         </div>
 

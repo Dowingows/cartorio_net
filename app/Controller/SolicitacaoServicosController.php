@@ -49,9 +49,10 @@ class SolicitacaoServicosController extends AppController {
         $this->set('solicitacoes', $this->paginate('SolicitacaoServico'));
     }
 
-    public function solicitar_servico() {
+    public function solicitar_servico($type_service = 0) {
 
         if ($this->request->isPost()) {
+
             $this->SolicitacaoServico->create($this->request->data);
             if ($this->SolicitacaoServico->saveAll($this->request->data, array('validate' => 'only'))) {
                 if ($this->SolicitacaoServico->saveAll($this->request->data, array('validate' => false))) {
@@ -67,10 +68,13 @@ class SolicitacaoServicosController extends AppController {
 
         $estados = $this->Estado->find('list', array('fields' => array('sigla', 'sigla'), 'order' => 'sigla ASC'));
         $this->set('tipos_servico', $this->TipoServico->find('list', array('order' => 'nome ASC')));
+        $this->set('servicos_', $this->TipoServico->find('list', array('order' => 'id ASC','limit'=>'15')));
         $this->set('estados', $estados);
         $documento = empty($this->request->data['DadoDocumento']) ? array() : $this->request->data['DadoDocumento'];
-        $id = empty($documento['tipo_servico_id']) ? "0" : $documento['tipo_servico_id'];
-
+        $id = empty($documento['tipo_servico_id']) ? $type_service : $documento['tipo_servico_id'];
+        if (!empty($id)) {
+            $this->request->data['DadoDocumento']['tipo_servico_id'] = $id;
+        }
         $inputs = $this->createInputsServico($id, $documento);
 
         $this->set('inputs', $inputs);
