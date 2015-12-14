@@ -81,6 +81,9 @@ class SitesController extends AppController {
                 $this->setMessage('validateError', null, 3);
             }
         }
+
+        $options = array('Advogado Correspondente', 'Advogado Audiencista', 'Cópia de Processos', 'Despacho com magistrados','Protocolo de petições', 'Acompanhamento junto a órgão Públicos', 'Preposto', 'Outros');
+        $this->set('options', $options);
         $this->layout = "site";
     }
 

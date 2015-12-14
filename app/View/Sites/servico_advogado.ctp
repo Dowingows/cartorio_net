@@ -30,9 +30,11 @@ print $this->Form->create("Contato", array("class" => "form-horizontal", 'novali
                                     <?= $this->BForm->input('Contato.name', array('label' => 'Nome', 'placeholder' => 'Nome ', 'div' => false, 'class' => 'form-control')); ?>
                                     <?= $this->BForm->input('Contato.email', array("label" => 'Email', 'placeholder' => 'Email', 'div' => false, 'class' => 'form-control')); ?>
                                     <?= $this->BForm->input('Contato.phone', array("label" => 'Telefone', 'placeholder' => 'Telefone', 'div' => false, 'class' => 'form-control')); ?>
+                                  <?= $this->BForm->input('Contato.tipo_servico', array("label" => 'Serviços', 'type' => 'select', 'div' => false, 'class' => 'form-control', 'options' => $options, 'empty' => 'Selecione')); ?>
+
                                 </div>
                                 <div class="col-lg-6">
-                                    <?= $this->BForm->input('Contato.message', array("label" => 'Descrição', 'rows' => '8', 'div' => false, 'type' => 'textarea', 'class' => 'form-control')); ?> 
+                                    <?= $this->BForm->input('Contato.message', array("label" => 'Descrição', 'rows' => '11', 'div' => false, 'type' => 'textarea', 'class' => 'form-control')); ?> 
                                 </div>
                             </div>
                         </div>
