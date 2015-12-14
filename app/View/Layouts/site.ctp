@@ -46,6 +46,18 @@
 
     <style type="text/css">
 
+      table.well1 {
+        width: 100%;
+        border: 0px;
+      }
+
+      table.well1 td {
+        padding: 15px 15px;
+        line-height: 18px;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+      }
       .brand_name{
         width: 80%;
       }
@@ -89,27 +101,27 @@
     }
 
     .fa-facebook{
-      color:#F89830;
+      color:#9A9FA3;
     }
 
     .fa-envelope{
-      color: #EA8015;
+      color: #9A9FA3;
     }
 
     .fa-fax{
-      color: #EA8015;
+      color: #9A9FA3;
     }
 
     .fa-twitter{
-      color: #EA8015;
+      color: #9A9FA3;
     }
 
     .fa-map-marker{
-      color: #EA8015;
+      color: #9A9FA3;
     }
     
     .fa-phone{
-      color: #EA8015;
+      color: #9A9FA3;
     }
     
     
@@ -119,12 +131,9 @@
    
 
     header {
-        background: rgb(0, 0, 0);
+        background: #f5f5f5;
     }
 
-    .sf-menu > li.active > a {
-      background: rgb(234, 128, 21);
-    }
 
     menu > li > a:hover {
         background: rgb(242, 149, 30);
@@ -139,11 +148,6 @@
     }
 
 
-    .well1 ul{
-        list-style-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><circle fill="red" cx="5" cy="5" r="5"/></svg>');
-    }
-
-
     .well1 li {
       position: relative;
       margin-left: 25px;
@@ -154,14 +158,27 @@
       line-height: 18px;
       color: #9A9FA3;
     }
-    .well1 li a:before {
+
+    .well1 li:before {
       content: "\f00c";
       position: absolute;
-      left: 0;
+      left: -20px;
       top: 16px;
       font-weight: 400;
       font-size: 22px;
       font-family: "FontAwesome";
+      color:rgb(234, 128, 21);
+    }
+
+    .well1 li a:before {
+      content: "\f00c";
+      position: absolute;
+      left: -20px;
+      top: 16px;
+      font-weight: 400;
+      font-size: 22px;
+      font-family: "FontAwesome";
+      color:rgb(234, 128, 21);
     }
     .well1 li + li {
       margin-top: 0px;
@@ -228,6 +245,23 @@
     .btn {
       background: rgb(234, 128, 21);
     }
+    .btn:hover{
+      background: #F89830;
+    }
+
+
+    .well1 .btn2 {
+      background: #F89830;
+      color: white;
+      
+    }
+
+    .well1 .btn2:hover {
+      background: rgb(234, 128, 21);
+      color: white;
+    }
+
+
      @media (max-width: 767px) {
       .product-list li .box_aside {
           float: none;
@@ -235,17 +269,22 @@
       }
     }
 
+    .ins4 {
+      background-color: #F0F4F5;
+    }
+
     h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
         color: rgb(234, 128, 21);
     }
     
+    /*
     footer {
       background: rgb(0, 0, 0);
     }
 
     .icon2:before {
       background: rgba(0, 0, 0, 0.78)
-    }
+    }*/
 
 
     </style>

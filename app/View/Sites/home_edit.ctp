@@ -1,7 +1,7 @@
 <?= $this->Html->script(array('ckeditor/ckeditor.js')); ?>
 <?= $this->Html->script(array('ckeditor/pt-br.js')); ?>
 <?php
-	print $this->Form->create( 'Page');
+	print $this->Form->create( 'Page', array('enctype' => 'multipart/form-data'));
 ?>
 
 <h1>Bloco 01</h1>
@@ -19,15 +19,18 @@
 
 <h1>Bloco 02</h1>
 <div class="row-fluid">
+	<div class="span6">
+		<?= $this->BForm->input( "bloco02.0.title", array( 'label' => 'Título', 'placeholder' => 'Titulo', 'value' => $content->bloco02[0]->title) ); ?>	
 
-<?php foreach ($content->bloco02 as $key => $value): ?>
-	<div class="span3">
-		<?= $this->BForm->input( "bloco02.{$key}.title", array( 'label' => 'Título', 'placeholder' => 'Titulo', 'value' => $value->title) ); ?>	
-
-		 <?=  $this->BForm->input("bloco02.{$key}.content", array('type' => 'textarea', 'label' => 'Conteúdo','required'=>true, 'class'=>'ckeditor', 'value' => $value->content))?>
+		 <?=  $this->BForm->input("bloco02.0.content", array('type' => 'textarea', 'label' => 'Conteúdo','required'=>true, 'class'=>'ckeditor', 'value' => $content->bloco02[0]->content))?>
+		<br>
+		
 	</div>
-<?php  endforeach;?>
+	<div class="span6">
+		<?= $this->BForm->input( "bloco02.1.title", array( 'label' => 'Título', 'placeholder' => 'Titulo', 'value' => $content->bloco02[1]->title) ); ?>	
 
+		 <?=  $this->BForm->input("bloco02.1.content", array('type' => 'textarea', 'label' => 'Conteúdo','required'=>true, 'class'=>'ckeditor', 'value' => $content->bloco02[1]->content))?>
+	</div>
 </div>
 <h1>Bloco 03</h1>
 <div class="row-fluid">
@@ -43,3 +46,10 @@
 
 
 <?= $this->element( "submit", array( 'cancel' => "/pages/page_index" ) ) ?>
+<script type="text/javascript">
+	
+	$(".remove_image").click(function(){
+		$("#image_bloco2").hide();
+	});
+
+</script>

@@ -770,11 +770,10 @@ blockquote p + cite {
 /*==================  Marked List  ======================*/
 table {
   width: 100%;
-  border: 1px solid #e5e5e5;
+  border: 0px;
 }
 table td {
-  border: 1px solid #e5e5e5;
-  padding: 15px 20px;
+  padding: 15px 15px;
   line-height: 18px;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;

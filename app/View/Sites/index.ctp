@@ -57,7 +57,7 @@
             </ul>
           </div>
         </section>
-        <section class="well ins1">
+<!--         <section class="well ins1">
           <div class="container hr">
             <ul class="row product-list">
              <?php if (!empty($content)):?>
@@ -108,6 +108,23 @@
             <?php endif;?>
             </ul>
           </div>
+        </section> -->
+
+        <section class="well1 ins4">
+          <div class="container <?=(!empty($content->bloco02[0]->content)) ? '': 'bg-image';?>">
+            <div class="row">
+              <div class="grid_6" style="float:left">
+                <?php if (!empty($content->bloco02[0]->content)): ?>
+                  <?= $content->bloco02[0]->content ?>
+                <?php endif; ?>
+              </div>
+              <div class="grid_6">
+
+                <h2 style="color:rgb(234, 128, 21)"><?=$content->bloco02[1]->title?></h2>
+                <?=$content->bloco02[1]->content?>
+              </div>
+            </div>
+          </div>
         </section>
         <section class="well1">
           <div class="container">
@@ -117,10 +134,10 @@
               <?php foreach ($content->bloco03 as $key => $value): ?>
                 <div class="grid_4">
                   <div>
-                  <h2><?= $value->title ?></h2>
+                  <h2 style="color:rgb(234, 128, 21)"><?= $value->title ?></h2>
                   <?= $value->content ?>
                   </div>
-                  <a href="#" class="btn">Mais...</a>              
+                  <a href="#" class="btn2">Mais...</a>              
                 </div>
               <?php endforeach; ?>
               

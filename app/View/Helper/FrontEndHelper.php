@@ -75,10 +75,14 @@ class FrontEndHelper extends AppHelper {
 
         $string = '';
 
-        $session_menu = !empty($this->Session->read("Auth.User.Menu")) ? $this->Session->read("Auth.User.Menu") : array();
+        $value = $this->Session->read("Auth.User.Menu");
+
+        $session_menu = !empty($value) ? $this->Session->read("Auth.User.Menu") : array();
         $areas = &$session_menu;
 
-        $session_profile = !empty($this->Session->read("Auth.User.Profile")) ? $this->Session->read("Auth.User.Profile") : array();
+        $value2 = $this->Session->read("Auth.User.Profile");
+
+        $session_profile = !empty($value2) ? $this->Session->read("Auth.User.Profile") : array();
 
         $permissions = &$session_profile;
 
