@@ -27,14 +27,18 @@
         <?= $this->Html->css(array('bootstrap/bootstrap.min')); ?>
         
     <?php endif; ?>
+
     
     <?= $this->Html->css(array('cartorio/grid'))?>
     <?= $this->Html->css(array('cartorio/style'))?>
+    <?= $this->Html->css(array('cartorio/camera'))?>
+    <?= $this->Html->css(array('cartorio/owl-carousel'))?>
+    
     
     <?= $this->Html->script(array('cartorio/jquery'))?>
     <?= $this->Html->script(array('cartorio/jquery-migrate-1.2.1'))?>
     <?php if($this->action == 'solicitar_servico' || $this->action == 'servico_advogado' || $this->action =='contato') :?>
-    <?= $this->Html->script(array('bootstrap/bootstrap.min')); ?>
+    <?= $this->Html->script(array('cartorio/device.min'))?>
    <?php endif; ?>
         <!--[if lt IE 9]>
     <html class="lt-ie9">
@@ -45,6 +49,18 @@
 
     <style type="text/css">
 
+      table.well1 {
+        width: 100%;
+        border: 0px;
+      }
+
+      table.well1 td {
+        padding: 15px 15px;
+        line-height: 18px;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+      }
       .brand_name{
         width: 80%;
       }
@@ -74,38 +90,60 @@
       background: #434547;
     }
     .banner li:nth-child(2) {
-      background: #4A4C4D;
+      background: rgba(67, 69, 71, 0.98);
     }
     .banner li:nth-child(3) {
-      background: #434547;
+      background: rgba(67, 69, 71, 0.95);
     }
     .banner li:nth-child(4) {
-      background: #4A4C4D;
+      background: rgba(67, 69, 71, 0.93);
     }
 
     .icon {
       background: #4A4C4D; 
     }
-    .fa-map-marker{
-      color:#F89830;
+
+    .fa-facebook{
+      color:#9A9FA3;
     }
 
-    .fa-phone{
+    .fa-envelope{
       color: #9A9FA3;
     }
 
-    .icon:before {
-      background: #4A4C4D;
+    .fa-fax{
+      color: #9A9FA3;
+    }
+
+    .fa-twitter{
+      color: #9A9FA3;
+    }
+
+    .fa-map-marker{
+      color: #9A9FA3;
     }
     
+    .fa-phone{
+      color: #9A9FA3;
+    }
+    
+    
+    .icon:before {
+      background: #434547;
+    }
+   
 
     header {
-        background: #FFFFFF;
+        background: #f5f5f5;
     }
+
+
+    menu > li > a:hover {
+        background: rgb(242, 149, 30);
+    }
+
     .stuck_container {
-      /*background: #F89830;*/
-      /*background: #F2871B;*/
-      background: #E87529;
+      background: rgb(234, 128, 21);
     }
     
     .sf-menu > li.active > a {
@@ -126,11 +164,6 @@
     }
 
 
-    .well1 ul{
-        list-style-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><circle fill="red" cx="5" cy="5" r="5"/></svg>');
-    }
-
-
     .well1 li {
       position: relative;
       margin-left: 25px;
@@ -141,14 +174,27 @@
       line-height: 18px;
       color: #9A9FA3;
     }
-    .well1 li a:before {
+
+    .well1 li:before {
       content: "\f00c";
       position: absolute;
-      left: 0;
+      left: -20px;
       top: 16px;
       font-weight: 400;
       font-size: 22px;
       font-family: "FontAwesome";
+      color:rgb(234, 128, 21);
+    }
+
+    .well1 li a:before {
+      content: "\f00c";
+      position: absolute;
+      left: -20px;
+      top: 16px;
+      font-weight: 400;
+      font-size: 22px;
+      font-family: "FontAwesome";
+      color:rgb(234, 128, 21);
     }
     .well1 li + li {
       margin-top: 0px;
@@ -157,15 +203,105 @@
     .well1 a:hover {
       color: #777777;
     }
-    
-  
-    
-   @media (max-width: 767px) {
-    .product-list li .box_aside {
-        float: none;
-        background-color: ;
+
+    .banner li:hover {
+      margin-top: 0px;
+      height: 388px;
+      padding-bottom: 50px;
     }
-  }
+    .banner li [class*="fa-"] {
+      font-size: 62px;
+      line-height: 1;
+      color: inherit;
+    }
+    .banner li a {
+      position: absolute;
+      bottom: 26px;
+      right: -30px;
+    }
+
+    .banner li:nth-child(4) a {
+      position: absolute;
+      bottom: 26px;
+      right: 30px;
+    }
+
+    .banner li a:before {
+      font-family: "FontAwesome";
+      font-size: 19px;
+      line-height: 1;
+      color: inherit;
+      content: "";
+    }
+
+    .banner li:nth-child(4) a:before {
+      content: "";
+    }
+
+    .banner li a:hover {
+      opacity: .7;
+    }
+
+    .banner li:nth-child(4) a:hover {
+      opacity: 30;
+    }
+
+    .banner li:hover a {
+      right: 30px;
+    }
+
+    .banner li a {
+        right: 20px;
+    }
+
+    .banner li:nth-child(4) a {
+        right: 70px;
+    }
+
+    .btn {
+      background: rgb(234, 128, 21);
+    }
+    .btn:hover{
+      background: #F89830;
+    }
+
+
+    .well1 .btn2 {
+      background: #F89830;
+      color: white;
+      
+    }
+
+    .well1 .btn2:hover {
+      background: rgb(234, 128, 21);
+      color: white;
+    }
+
+
+     @media (max-width: 767px) {
+      .product-list li .box_aside {
+          float: none;
+          background-color: ;
+      }
+    }
+
+    .ins4 {
+      background-color: #F0F4F5;
+    }
+
+    h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+        color: rgb(234, 128, 21);
+    }
+    
+    /*
+    footer {
+      background: rgb(0, 0, 0);
+    }
+
+    .icon2:before {
+      background: rgba(0, 0, 0, 0.78)
+    }*/
+
 
     </style>
   </head>
