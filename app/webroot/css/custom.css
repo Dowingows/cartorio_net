@@ -38,7 +38,17 @@ hr {
     border-bottom: 3px solid #A5A8AB;
 }
 
-.stuck_container {
-    /*background: #F89830;*/
+/*.stuck_container {
+    background: #F89830;
     background: #E87529;
+}*/
+
+.btn.btn-primary {
+    background: rgb(234, 128, 21);
+    color: #ffffff;
+}
+
+.btn.btn-primary:hover{
+    background: rgba(234, 128, 21, 0.92);
+    color: #ffffff;
 }

@@ -12,19 +12,20 @@
         ),
         array(
             'label'=>'Serviços',
-            'url'=>'#',
-            'active'=>false,
-        ),
-        array(
-            'label'=>'Solicite a sua certidão',
-            'url'=>'/solicitar-certidao',
+            'url'=>'/servicos',
             'active'=>($this->name=='SolicitacaoServicos')&&($this->action =='solicitar_servico'),
         ),
         array(
-            'label'=>'Serviços para Advogados',
-            'url'=>'/servicos-para-advogado',
+            'label'=>'Serviços advocatícios',
+            'url'=>'/servicos-advocaticios',
             'active'=>($this->name=='Sites')&&($this->action =='servico_advogado'),
         ),
+        array(
+            'label'=>'Clube de investidores judiciais',
+            'url'=>'/',
+            'active'=>false,
+        ),
+
         array(
             'label'=>'Contato',
             'url'=>'/contato',

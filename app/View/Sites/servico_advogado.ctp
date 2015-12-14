@@ -5,7 +5,7 @@ print $this->Form->create("Contato", array("class" => "form-horizontal", 'novali
 <main class="mobile-center">
     <section>
         <div class="container hr well1 ins2">
-            <h2>Serviços para Advogados</h2>
+            <h2>Serviços advocatícios</h2>
             <hr>
                 <?= $this->FrontEnd->message(); ?>
             <div class="row">
@@ -15,11 +15,8 @@ print $this->Form->create("Contato", array("class" => "form-horizontal", 'novali
                         <p><img alt="" src="http://omaispositivo.com.br/wp-content/uploads/2015/03/advocacia.jpg" style="height:198px; width:300px"></p>
                         <br/>                        
 
-                        <p align="justify" style="font-weight: bold;">
-                            Solicite a sua certidão agora no Cartórionet.
-                        </p>
-                        <p align="justify" style="font-weight: bold;">
-                            É Simples, rápido e seguro.
+                        <p style="font-weight: bold;">
+                            Solicite serviços advocatícios, e consultorias processuais com a Cartório Net.
                         </p>
                     </div>
                 </div>
@@ -35,7 +32,7 @@ print $this->Form->create("Contato", array("class" => "form-horizontal", 'novali
                                     <?= $this->BForm->input('Contato.phone', array("label" => 'Telefone', 'placeholder' => 'Telefone', 'div' => false, 'class' => 'form-control')); ?>
                                 </div>
                                 <div class="col-lg-6">
-                                    <?= $this->BForm->input('Contato.message', array("label" => 'Mensagem', 'rows' => '8', 'div' => false, 'type' => 'textarea', 'class' => 'form-control')); ?> 
+                                    <?= $this->BForm->input('Contato.message', array("label" => 'Descrição', 'rows' => '8', 'div' => false, 'type' => 'textarea', 'class' => 'form-control')); ?> 
                                 </div>
                             </div>
                         </div>

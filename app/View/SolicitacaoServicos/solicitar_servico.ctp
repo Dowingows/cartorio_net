@@ -7,24 +7,21 @@ print $this->Form->create("SolicitacaoServico", array("class" => "form-horizonta
 <main class="mobile-center">
     <section>
         <div class="container hr well1 ins2">
-            <h2>Solicite sua certidão</h2>
+            <h2>Solicite sua certidão ou documento</h2>
             <hr>
             <?= $this->FrontEnd->message(); ?>
             <div class="row">
                 <div class="col-lg-4">
                     <div style="padding-left: 25px;">
-                        <h2>Certidões</h2>
+                        <h3>Certidões e documentos</h3>
                         <p><img alt="" src="http://condominiodofuturo.com/wp-content/uploads/2013/01/Certidoes_Gerais_1.jpg" style="height:198px; width:300px"></p>
                         <br/>                        
 
-                        <p align="justify" style="font-weight: bold;">
-                            Solicite a sua certidão agora no Cartórionet.
-                        </p>
-                        <p align="justify" style="font-weight: bold;">
-                            É Simples, rápido e seguro.
+                        <p style="font-weight: bold;">
+                            Solicite seu documento agora no Cartório Net.
                         </p>
                     </div>
-                    <?= $this->element('tipo_servicos', array('servicos' => $servicos_)) ?>
+                    <?//= $this->element('tipo_servicos', array('servicos' => $servicos_)) ?>
                 </div>
                 <div class="col-lg-8">
                     <div class="col-lg-12">

@@ -30,10 +30,10 @@ Router::connect('/', array('controller' => 'sites', 'action' => 'index', 'home')
 Router::connect('/institucional', array('controller' => 'sites', 'action' => 'sigle_page', 2));
 Router::connect('/admin', array('controller' => 'pages', 'action' => 'display', 'home'));
 
-Router::connect('/solicitar-certidao', array('controller' => 'SolicitacaoServicos', 'action' => 'solicitar_servico'));
+Router::connect('/servicos', array('controller' => 'SolicitacaoServicos', 'action' => 'solicitar_servico'));
 Router::connect('/solicitar-certidao/*', array('controller' => 'SolicitacaoServicos', 'action' => 'solicitar_servico'), array('pass' => array('id')));
 
-Router::connect('/servicos-para-advogado', array('controller' => 'Sites', 'action' => 'servico_advogado'));
+Router::connect('/servicos-advocaticios', array('controller' => 'Sites', 'action' => 'servico_advogado'));
 Router::connect('/contato', array('controller' => 'Sites', 'action' => 'contato'));
 
 

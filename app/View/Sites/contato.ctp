@@ -45,7 +45,7 @@ print $this->Form->create("Contato", array("class" => "form-horizontal", 'novali
               <div class="row">    
                 <div class="col-lg-4"></div>
                 <div class="col-lg-8">
-                    <?= $this->element("submit3", array('cancel' => '/contato')) ?>
+                    <?= $this->element("submit4", array('cancel' => '/contato')) ?>
                 </div>
             </div>
         </div>

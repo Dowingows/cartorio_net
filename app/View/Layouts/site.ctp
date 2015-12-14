@@ -33,12 +33,12 @@
     <?= $this->Html->css(array('cartorio/style'))?>
     <?= $this->Html->css(array('cartorio/camera'))?>
     <?= $this->Html->css(array('cartorio/owl-carousel'))?>
-    
+    <?= $this->Html->script(array('cartorio/device.min'))?>
     
     <?= $this->Html->script(array('cartorio/jquery'))?>
     <?= $this->Html->script(array('cartorio/jquery-migrate-1.2.1'))?>
     <?php if($this->action == 'solicitar_servico' || $this->action == 'servico_advogado' || $this->action =='contato') :?>
-    <?= $this->Html->script(array('cartorio/device.min'))?>
+    
    <?php endif; ?>
         <!--[if lt IE 9]>
     <html class="lt-ie9">
@@ -134,7 +134,7 @@
    
 
     header {
-        background: #f5f5f5;
+        background: rgb(0, 0, 0);
     }
 
 
@@ -155,7 +155,7 @@
     
     .sf-menu > li.sfHover > a, .sf-menu > li > a:hover {
         color: #fff;
-        background: #F6981E;
+        background: #CC6017;
         border-right: 1px solid #BDBDBD;  
     }
     
@@ -390,7 +390,7 @@
         </section>
         <section>
           <div class="container">
-            <div class="copyright">CartórioNet © <span id="copyright-year"></span>
+            <div class="copyright">Cartório Net © <span id="copyright-year"></span>
             </div>
           </div
         </section>

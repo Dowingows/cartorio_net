@@ -42,7 +42,7 @@
                 ?>
         <div class="btn-group">
         <?php
-	 	print $this->Form->button('Solicitar orçamento', array( 'class' => 'btn btn-primary  btn-sm', 'div' => false, 'escape' => false, 'style' => 'width:245px;') );
+	 	print $this->Form->button('Enviar', array( 'class' => 'btn btn-primary  btn-sm', 'div' => false, 'escape' => false) );
 	?>
         </div>
 	<div class="spinner"></div>
