@@ -49,3 +49,10 @@ print $this->Form->create("Contato", array("class" => "form-horizontal", 'novali
             </div>
     </section>
 </main>
+
+
+<style>
+    .container [class*="grid_"] {
+     margin-left: 0px; 
+}
+</style>

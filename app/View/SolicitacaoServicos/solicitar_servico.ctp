@@ -1,3 +1,8 @@
+<style>
+    .container [class*="grid_"] {
+     margin-left: 0px; 
+}
+</style>
 
 <?= $this->Html->css(array('custom')) ?>
 <?php
