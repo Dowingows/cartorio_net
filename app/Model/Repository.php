@@ -68,7 +68,7 @@ class Repository extends AppModel {
             $this->data['Repository'] = $data_table;
             return true;
         } else {
-            return false;
+            return true;
         }
     }
 
