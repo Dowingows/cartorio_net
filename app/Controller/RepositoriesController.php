@@ -55,10 +55,10 @@ class RepositoriesController extends AppController {
 
 
         if (!$this->request->isPut()) {
-
+            
             $this->Repository->contain();
             $this->data = $this->Repository->findById($id);
-            pr($this->data);die;
+            
         } else {
 
             $this->Repository->id = $id;

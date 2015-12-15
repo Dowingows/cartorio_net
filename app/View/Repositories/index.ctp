@@ -22,7 +22,7 @@
                 <tr>
                     <td><i class="icon-file"></i></td>
                     <td><?= $this->Html->link($repository['Repository']['name'], $this->FrontEnd->repositoryLink($repository['Repository']['id']), array('escape' => false,'target'=>'_blank')) ?></td>
-                    <td><?= $this->Html->link($repository['Repository']['link_image'], $repository['Repository']['link_image'] , array('escape' => false)) ?></td>
+                    <td><?= $repository['Repository']['link_image'] ?></td>
                     <td><?= $repository['Repository']['type'] ?></td>
                     <td><?= (double)($repository['Repository']['size']/1000) ?></td>
                     <td><?= $this->FrontEnd->nicedate($repository['Repository']['created']); ?></td>
