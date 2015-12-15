@@ -317,7 +317,7 @@
       <header>
         <div class="container">
           <div class="brand">
-            <h1 class="brand_name"><a href="#"><?= $this->Html->image('logo3.png',array('alt' => 'Cartório Net')) ?></a>        
+            <h1 class="brand_name"><a href="<?= $this->Html->url('/') ?>"><?= $this->Html->image('logo3.png',array('alt' => 'Cartório Net')) ?></a>        
             </h1>
             <a href="callto:#">
               <i class="fa fa-phone"></i>&nbsp;<?=$setting['phone'] ?>
