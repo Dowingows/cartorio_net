@@ -49,6 +49,27 @@ class RepositoriesController extends AppController {
         }
     }
 
+    public function edit($id) {
+
+        $this->checkAccess($this->name, 'add');
+
+
+        if (!$this->request->isPut()) {
+
+            $this->Repository->contain();
+            $this->data = $this->Repository->findById($id);
+            pr($this->data);die;
+        } else {
+
+            $this->Repository->id = $id;
+            if ($this->Repository->saveField('link_image', $this->request->data['Repository']['link_image'])) {
+                $this->setMessage('saveSuccess', 'Repository');
+                $this->redirect(array('controller' => $this->name, 'action' => 'index'));
+            } else
+                $this->setMessage('saveError', 'Repository');
+        }
+    }
+
     public function delete($id) {
         if ($this->Repository->deleteFile($id)) {
             $this->setMessage('deleteSuccess', 'Repository');
