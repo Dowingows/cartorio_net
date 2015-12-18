@@ -65,12 +65,12 @@ class EmailConfig {
     );
     public $smtp = array(
         'transport' => 'Smtp',
-        'from' => array('site@localhost' => 'My Site'),
+        'from' => array('contato@cartorionet.com' => 'Cart&oacute;rio'),
         'host' => 'localhost',
         'port' => 25,
         'timeout' => 30,
-        'username' => 'user',
-        'password' => 'secret',
+        'username' => 'contato@cartorionet.com',
+        'password' => 'cartorionet2016',
         'client' => null,
         'log' => false
             //'charset' => 'utf-8',

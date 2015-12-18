@@ -56,7 +56,7 @@ class SolicitacaoServicosController extends AppController {
             $this->SolicitacaoServico->create($this->request->data);
             if ($this->SolicitacaoServico->saveAll($this->request->data, array('validate' => 'only'))) {
                 if ($this->SolicitacaoServico->saveAll($this->request->data, array('validate' => false))) {
-                    $this->send_email($this->SolicitacaoServico->getLastInsertID);
+                    $this->send_email($this->SolicitacaoServico->id);
                     $this->setMessage('saveSuccess', 'SolicitacaoServico');
                     $this->request->data = array();
                 } else
@@ -68,7 +68,7 @@ class SolicitacaoServicosController extends AppController {
 
         $estados = $this->Estado->find('list', array('fields' => array('sigla', 'sigla'), 'order' => 'sigla ASC'));
         $this->set('tipos_servico', $this->TipoServico->find('list', array('order' => 'id ASC')));
-        $this->set('servicos_', $this->TipoServico->find('list', array('order' => 'id ASC','limit'=>'15')));
+        $this->set('servicos_', $this->TipoServico->find('list', array('order' => 'id ASC', 'limit' => '15')));
         $this->set('estados', $estados);
         $documento = empty($this->request->data['DadoDocumento']) ? array() : $this->request->data['DadoDocumento'];
         $id = empty($documento['tipo_servico_id']) ? $type_service : $documento['tipo_servico_id'];
@@ -90,22 +90,26 @@ class SolicitacaoServicosController extends AppController {
     }
 
     private function send_email($id) {
-
         $solicitacao = $this->SolicitacaoServico->getSolicitacao($id);
+
+        $setting = $this->Setting->find('first', array('fields' => 'email_contact'));
+        $email_contact = empty($setting['Setting']['email_contact']) ? '' : $setting['Setting']['email_contact'];
+
         $this->autoRender = false;
+
         App::uses('CakeEmail', 'Network/Email');
 
         $Email = new CakeEmail();
-        $Email->config('gmail');
+        $Email->config('smtp');
         $Email->template('servicos', null);
         $Email->viewVars(array('solicitacao' => $solicitacao));
 
-
-
-        $Email->to('domingos.adj@gmail.com');
+        $Email->to($email_contact);
         $Email->emailFormat('html');
-        $Email->subject('TEste');
-        return $Email->send('Aqui');
+        $Email->subject('Cartório NET - Solicitação de Serviço');
+        $Email->send();
+        
+        $this->redirect('/servicos');
     }
 
     private function createInputsServico($id, $data = array()) {

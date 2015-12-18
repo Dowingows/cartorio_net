@@ -46,21 +46,26 @@ class Contato extends AppModel {
 
     public function sendEmail() {
 
+        App::import('Model', 'Setting');
+        $setting_model = new Setting();
+
+        $setting = $setting_model->find('first', array('fields' => 'email_contact'));
+        $email_contact = empty($setting['Setting']['email_contact']) ? '' : $setting['Setting']['email_contact'];
+
         if (!empty($this->data['Contato'])) {
 
             $contato = $this->data['Contato'];
             App::uses('CakeEmail', 'Network/Email');
 
             $Email = new CakeEmail();
-            $Email->config('gmail');
+            $Email->config('smtp');
             $Email->template('contato', null);
             $Email->viewVars(array('contato' => $contato));
-
-            $Email->to('domingos.adj@gmail.com');
+         
+            $Email->to($email_contact);
             $Email->emailFormat('html');
 
             $Email->subject("Cartório NET - Contato: " . $contato['subject']);
-
             $success = false;
 
             try {
@@ -70,6 +75,7 @@ class Contato extends AppModel {
                     $success = false;
                 }
             } catch (Exception $e) {
+                pr($e);die;
                 $success = false;
             }
 
