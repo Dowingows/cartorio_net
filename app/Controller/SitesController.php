@@ -1,5 +1,3 @@
-
-
 <?php
 
 class SitesController extends AppController {
