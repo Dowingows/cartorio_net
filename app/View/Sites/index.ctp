@@ -4,20 +4,13 @@
       ========================================================
       -->
       <main>
-        <section class="camera_container">
-          <div id="camera" class="camera_wrap">
-            <?php foreach ($slider as $image):?>
-              <div data-src="<?= $image?>">
-                <div class="camera_caption fadeIn">
-                  <div class="container">
-                    <div class="row">
-                    </div>
-                  </div>
-                </div>
-              </div>
-           <?php endforeach; ?>
-          </div>    
-        </section>
+          <div>
+            <ul class="bxslider">
+              <?php foreach ($slider as $image):?>                
+                  <li><a href=""><img src="<?= $image ?>"/></a></li>             
+              <?php endforeach; ?>
+            </ul>
+          </div>
         <section>
           <div class="container banner_wr">
             <ul class="banner">
@@ -216,3 +209,18 @@
           </div>
         </section>
       </main>
+
+    <?= $this->Html->script(array('bxslider/jquery.bxslider'))?>
+    <?= $this->Html->script(array('bxslider/plugins/jquery.easing.1.3'))?>
+
+  <script type="text/javascript">
+    $('.bxslider').bxSlider({
+      mode: 'fade',
+      useCSS: false,
+      infiniteLoop: true,
+      hideControlOnEnd: true,
+      easing: 'easeOutElastic',
+      speed: 2000,
+      pager:false
+    });
+  </script>

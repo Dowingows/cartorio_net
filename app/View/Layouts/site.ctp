@@ -34,6 +34,9 @@
     <?= $this->Html->css(array('cartorio/camera'))?>
     <?= $this->Html->css(array('cartorio/owl-carousel'))?>
     <?= $this->Html->script(array('cartorio/device.min'))?>
+
+    <?= $this->Html->css(array('bxslider/jquery.bxslider'))?>
+
     
     <?= $this->Html->script(array('cartorio/jquery'))?>
     <?= $this->Html->script(array('cartorio/jquery-migrate-1.2.1'))?>
