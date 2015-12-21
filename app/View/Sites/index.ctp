@@ -221,6 +221,8 @@
       hideControlOnEnd: true,
       easing: 'easeOutElastic',
       speed: 2000,
-      pager:false
+      pager:false,
+      auto:true,
+      pause: 5000
     });
   </script>
