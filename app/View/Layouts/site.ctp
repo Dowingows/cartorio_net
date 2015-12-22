@@ -383,14 +383,14 @@
                     <div class="icon2 fa-map-marker"></div>
                   </div>
                   <div class="box_cnt__no-flow">
-                    <address>Av.C Rua Teste, nº 12345</address>
+                    <address><a href="#"> <?= $setting['address']?></a></address>
                   </div>
                 </div>
                 <div class="box">
                   <div class="box_aside">
                     <div class="icon2 fa-envelope"></div>
                   </div>
-                  <div class="box_cnt__no-flow"><a href="mailto:#"><?= $setting['email_contact']?></a></div>
+                  <div class="box_cnt__no-flow"><a href="<?= $this->Html->url('/contato')?>"><?= $setting['email_contact']?></a></div>
                 </div>
               </li>
               <li class="grid_4">
@@ -412,13 +412,13 @@
                   <div class="box_aside">
                     <div class="icon2 fa-facebook"></div>
                   </div>
-                  <div class="box_cnt__no-flow"><a href="#">Follow on facebook</a></div>
+                  <div class="box_cnt__no-flow"><a href="<?= $setting['facebook_link'] ?>" target="_blank">Siga-nos no Facebook</a></div>
                 </div>
                 <div class="box">
                   <div class="box_aside">
                     <div class="icon2 fa-twitter"></div>
                   </div>
-                  <div class="box_cnt__no-flow"><a href="#">Follow on Twitter</a></div>
+                  <div class="box_cnt__no-flow"><a href="<?= $setting['twitter_link']?>" target="_blank">Siga-nos no Twitter</a></div>
                 </div>
               </li>
             </ul>
@@ -426,7 +426,7 @@
         </section>
         <section>
           <div class="container">
-            <div class="copyright">Cartório Net © <span id="copyright-year"></span>
+            <div class="copyright">Copyright © <span id="copyright-year"></span> Cartório Net. Todos os direitos reservados. 
             </div>
           </div
         </section>

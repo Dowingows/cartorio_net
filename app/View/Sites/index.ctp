@@ -142,19 +142,18 @@
                   <hr>
                   <h3>Atendimento:</h3>
                   <dl>
-                    <dt>Segunda - Sexta:</dt>
-                    <dd>08:00-12:00</dd>
-                    <dd>14:00-18:00</dd>
-                  </dl>
-                  <dl>
-                    <dt>Sábado:</dt>
-                    <dd>08:00-12:00</dd>
+                    <dt><?=$setting['working_hours']?></dt>
                   </dl>
                   <hr>
                   <h3>Telefone:</h3>
                   <dl>
                     <dt><?=$setting['phone'] ?></dt>
                   </dl>
+                  <hr>
+                  <h3>Chat Online:</h3>
+                    <a href="#chat" onclick="toggleChat()">
+                      <?= $this->Html->image('chat-online.png', array('style' => 'margin-top:20px;width:40%')) ?>
+                    </a> 
                 </div>
                 <!--
                 <div class="owl-carousel">

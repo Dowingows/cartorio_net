@@ -17,6 +17,8 @@
         print $this->BForm->input('Setting.email_contact', array('label' => 'Email para contato', 'type' => 'email'));
         print $this->BForm->input('Setting.phone', array('label' => 'Telefone'));
         print $this->BForm->input('Setting.cell_phone', array('label' => 'Celular'));
+        print $this->BForm->input('Setting.address', array('label' => 'Endereço'));
+        print $this->BForm->input('Setting.working_hours', array('label' => 'atendimento'));
         print $this->BForm->input('Setting.facebook_link', array('label' => 'Facebook'));
         print $this->BForm->input('Setting.twitter_link', array('label' => 'Twitter'));
         ?>
