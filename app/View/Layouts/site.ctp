@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
     <meta name="format-detection" content="telephone=no">
-    <link rel="icon" href="<?= $this->Html->url('/img/favicon.ico') ?>" type="img/x-icon">
+    <?= $this->Html->meta('icon', $this->Html->url('/favicon.ico')); ?>
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:type" content="website" />
 
