@@ -69,8 +69,8 @@
       }
 
       .brand img {
-          width: 25%;
-          float:left;
+/*          width: 25%;
+          float:left;*/
       }
 
       header a[href^="callto:"] {
@@ -312,6 +312,24 @@
 
 
     </style>
+
+    <!--Start of tawk.to clickable text Script-->
+
+  <script type="text/javascript">
+
+  function toggleChat() {
+
+  Tawk_API.toggle(); return false;
+
+  }
+
+  </script>
+  <!--End of tawk.to clickable text Script-->
+
+  <!--Start of Tawk.to Status Code-->
+  <script type="text/javascript">Tawk_API.onStatusChange = function (status){if(status === 'online'){document.getElementById('status').innerHTML = '<a href="#" onclick="toggleChat()">Online - Click to chat</a>';}else if(status === 'away'){document.getElementById('status').innerHTML = 'We are currently away';}else if(status === 'offline'){document.getElementById('status').innerHTML = 'Live chat is Offline';}};
+  </script>
+  <!--End of Tawk.to Status Code -->
   </head>
   <body>
     <div class="page">
@@ -325,14 +343,21 @@
       <header>
         <div class="container">
           <div class="brand">
-            <a href="<?= $this->Html->url('/') ?>" ><?= $this->Html->image('logo3.png',array('alt' => 'Cartório Net')) ?></a>        
-            
-            <a href="callto:#" style="float:left; margin-right:30px">
-              <?= $this->Html->image('chat-online.png', array('width' => '150px')) ?>
-            </a>  
-            <a href="callto:#" style="float:left;">
-              <i class="fa fa-phone"></i>&nbsp;<?=$setting['phone'] ?>
-            </a>   
+            <div class="row">
+              <div class="grid_4">
+                <a href="<?= $this->Html->url('/') ?>"><?= $this->Html->image('logo3.png',array('alt' => 'Cartório Net', 'width' => '90%')) ?></a>        
+              </div>  
+              <div class="grid_4" style="text-align:center;">
+                <a href="#chat" onclick="toggleChat()">
+                  <?= $this->Html->image('chat-online.png', array('style' => 'margin-top:20px;width:40%')) ?>
+                </a> 
+              </div>
+              <div class="grid_3">
+                <a href="callto:#">
+                  <i class="fa fa-phone"></i>&nbsp;<?=$setting['phone'] ?>
+                </a>
+              </div>
+            </div>    
           </div>
         </div>
         <div id="stuck_container" class="stuck_container">
