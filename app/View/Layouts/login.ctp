@@ -3,6 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="robots" content="noindex, nofollow" />
+<link rel="icon" href="<?= $this->Html->url('/img/favicon.ico') ?>" type="img/x-icon">
+
 <title><?= $title_for_layout ?> :: Login</title>
 
 <?php
