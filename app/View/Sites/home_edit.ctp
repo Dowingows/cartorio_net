@@ -16,7 +16,7 @@
 	</div>
 <?php  endforeach;?>
 </div>
-
+<hr>
 <h1>Bloco 02</h1>
 <div class="row-fluid">
 	<div class="span6">
@@ -32,11 +32,14 @@
 		 <?=  $this->BForm->input("bloco02.1.content", array('type' => 'textarea', 'label' => 'Conteúdo','required'=>true, 'class'=>'ckeditor', 'value' => $content->bloco02[1]->content))?>
 	</div>
 </div>
+
+<hr>
+
 <h1>Bloco 03</h1>
 <div class="row-fluid">
 
 <?php foreach ($content->bloco03 as $key => $value): ?>
-	<div class="span3">
+	<div class="span6">
 		<?= $this->BForm->input( "bloco03.{$key}.title", array( 'label' => 'Título', 'placeholder' => 'Titulo', 'value' => $value->title) ); ?>	
 
 		 <?=  $this->BForm->input("bloco03.{$key}.content", array('type' => 'textarea', 'label' => 'Conteúdo','required'=>true, 'class'=>'ckeditor', 'value' => $value->content))?>

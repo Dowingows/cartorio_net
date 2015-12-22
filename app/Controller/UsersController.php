@@ -146,7 +146,7 @@ class UsersController extends AppController {
         if ($this->request->isPost()) {
 
             if ($this->Auth->login())
-                $this->redirect($this->Auth->redirect());
+                $this->redirect('/admin');
             else
                 $this->Session->setFlash('<strong>Usuário</strong> ou <strong>senha</strong> inválida.', 'default', array('class' => 'error'), 'auth');
         }

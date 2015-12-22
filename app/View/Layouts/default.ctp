@@ -17,7 +17,7 @@
 <div id="header" class="navbar navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container">
-			<?= $this->Html->link( $title_for_layout, '/', array( 'escape' => false, 'class' => 'brand' ) ) ?>
+			<?= $this->Html->link( $title_for_layout, '/admin', array( 'escape' => false, 'class' => 'brand' ) ) ?>
 			<ul id="menu" class="nav">
 				<?= $this->FrontEnd->getMenu() ?>
 			</ul>

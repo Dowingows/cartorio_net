@@ -85,7 +85,7 @@ class FrontEndHelper extends AppHelper {
         $session_profile = !empty($value2) ? $this->Session->read("Auth.User.Profile") : array();
 
         $permissions = &$session_profile;
-
+        
         foreach ($areas as $area) {
 
             // se tiver permissao para controller/action
