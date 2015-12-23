@@ -154,6 +154,10 @@
       background: rgb(234, 128, 21);
     }
     
+    .container .row {
+      margin-left: 10px;
+    }
+
     .sf-menu > li.active > a {
         color: #fff;
         background: #CC6017;
@@ -166,7 +170,17 @@
         background: #CC6017;
         border-right: 1px solid #BDBDBD;  
     }
+
+
+    .sf-menu > li > a {
+      padding: 15px 30px;
+      font-size: 13px;
+    }
     
+    .container [class*="grid_"]{
+      margin-left: 0px;
+    }
+
     .info-box {
       background: #434547;
     }
@@ -337,26 +351,20 @@
       ========================================================
       							HEADER
       ========================================================
-      
-      
       -->
       <header>
         <div class="container">
           <div class="brand">
             <div class="row">
-              <div class="grid_4">
-                <a href="<?= $this->Html->url('/') ?>"><?= $this->Html->image('logo3.png',array('alt' => 'Cartório Net', 'width' => '90%')) ?></a>        
+              <div class="grid_9">
+                <a href="<?= $this->Html->url('/') ?>"><?= $this->Html->image('logo3.png',array('alt' => 'Cartório Net', 'width' => '40%')) ?></a>        
               </div>  
-              <div class="grid_4" style="text-align:center;">
+              <div class="grid_3" style="text-align:center;">
                 <a href="#chat" onclick="toggleChat()">
-                  <?= $this->Html->image('chat-online.png', array('style' => 'margin-top:20px;width:40%')) ?>
+                  <?= $this->Html->image('chat-online.png', array('style' => 'margin-top:30px;width:45%;')) ?>
                 </a> 
               </div>
-              <div class="grid_3">
-                <a href="callto:#">
-                  <i class="fa fa-phone"></i>&nbsp;<?=$setting['phone'] ?>
-                </a>
-              </div>
+
             </div>    
           </div>
         </div>

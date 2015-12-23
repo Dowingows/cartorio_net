@@ -25,7 +25,11 @@
             'url'=>'/',
             'active'=>false,
         ),
-
+        array(
+            'label'=>'Depoimentos',
+            'url'=>'/',
+            'active'=>false,
+        ),
         array(
             'label'=>'Contato',
             'url'=>'/contato',

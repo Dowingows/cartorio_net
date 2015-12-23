@@ -52,3 +52,8 @@ hr {
     background: rgba(234, 128, 21, 0.92);
     color: #ffffff;
 }
+
+.container {
+    padding-right: 0px;
+    padding-left: 0px;
+}
