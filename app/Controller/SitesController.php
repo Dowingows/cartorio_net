@@ -16,6 +16,8 @@ class SitesController extends AppController {
 
     public function beforeFilter() {
         parent::beforeRender();
+        parent::beforeFilter();
+        
         $this->Auth->allow('index', 'sigle_page', 'servico_advogado', 'contato');
         $this->Security->unlockedActions = array('servicos', 'edit_slider', 'contato', 'servico_advogado');
 

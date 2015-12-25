@@ -356,15 +356,16 @@
         <div class="container">
           <div class="brand">
             <div class="row">
-              <div class="grid_9">
-                <a href="<?= $this->Html->url('/') ?>"><?= $this->Html->image('logo3.png',array('alt' => 'Cartório Net', 'width' => '40%')) ?></a>        
+              <div class="grid_8">
+                <a href="<?= $this->Html->url('/') ?>"><?= $this->Html->image('logo3.png',array('alt' => 'Cartório Net', 'width' => '45%')) ?></a>        
               </div>  
-              <div class="grid_3" style="text-align:center;">
+              <div class="grid_2" style="text-align:center;">
                 <a href="#chat" onclick="toggleChat()">
-                  <?= $this->Html->image('chat-online.png', array('style' => 'margin-top:30px;width:45%;')) ?>
-                </a> 
+                  <?= $this->Html->image('chat-online.png', array('style' => 'margin-top:30px;width:75%;')) ?></a> 
               </div>
-
+              <div class="grid_2" style="text-align:center;">
+                  <p style="margin-top:45px;color:#FFFFFF"><i class="icon-users"></i> Visitantes Online: <?= $visitantes_online?></p>
+              </div>
             </div>    
           </div>
         </div>
@@ -401,7 +402,7 @@
                   <div class="box_cnt__no-flow"><a href="<?= $this->Html->url('/contato')?>"><?= $setting['email_contact']?></a></div>
                 </div>
               </li>
-              <li class="grid_4">
+<!--               <li class="grid_4">
                 <div class="box">
                   <div class="box_aside">
                     <div class="icon2 fa-phone"></div>
@@ -414,7 +415,7 @@
                   </div>
                   <div class="box_cnt__no-flow"><a href="callto:#"><?=$setting['phone'] ?></a></div>
                 </div>
-              </li>
+              </li> -->
               <li class="grid_4">
                 <div class="box">
                   <div class="box_aside">

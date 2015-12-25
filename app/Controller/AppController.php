@@ -22,6 +22,7 @@
  */
 App::uses('Controller', 'Controller');
 
+
 /**
  * Application Controller
  *
@@ -47,13 +48,15 @@ class AppController extends Controller {
                 'Form' => array(
                     'fields' => array('username' => 'email', 'password' => 'password')))),
         'Session',
-        'Menu'
+        'Menu',
     );
+
     public $helpers = array('Session', 'Form', 'Html', 'Paginator', 'Time', 'Text', 'FrontEnd', 'BForm');
     public $paginate = array('limit' => 20, 'order' => 'created DESC', 'contain' => false);
     public $uses = array('Profile');
     public $submenu = array();
     public $subtitle = null;
+    public $visitantesOnline = null;
 
     /* ----------------------------------------
      * Callbacks
@@ -63,10 +66,19 @@ class AppController extends Controller {
 
         $this->set("title_for_layout", $this->title);
         $this->set("submenu", $this->submenu);
-        $this->set("subtitle", $this->subtitle);
+        $this->set("subtitle", $this->subtitle);  
+        
     }
 
     public function beforeFilter() {
+
+        //Pegando a quantidade de visitantes online
+        $VisitantesOnline = new VisitantesOnline();
+        $this->visitantesOnline = $VisitantesOnline->visitantesOnline();
+
+        //colocando uma quantidade minima (fictícia) de clientes online 
+        $this->visitantesOnline = $this->visitantesOnline + rand ( 25 , 55 );
+        $this->set("visitantes_online", $this->visitantesOnline);
 
         $this->Security->validatePost = false;
         $this->Security->enabled = false;
