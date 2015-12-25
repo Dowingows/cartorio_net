@@ -17,6 +17,8 @@ class SolicitacaoServicosController extends AppController {
 
     public function beforeFilter() {
         parent::beforeRender();
+        parent:: beforeFilter();
+        
         $this->Auth->allow('solicitar_servico', 'getFieldsServico', 'getMunicipiosByUFAjax');
         $this->Security->unlockedActions = array('solicitar_servico');
 
