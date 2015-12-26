@@ -61,18 +61,23 @@ class VisitantesOnline{
       $novo = true;
       $identificador = $this->geraIdentificador();
     }
+
+     $atualizado = false; 
     // Se o visitante não é novo, tenta atualizar o registro dele na tabela
     if (!$novo) {
       $query = "UPDATE `".$this->_VO['tabela_v']."` SET `hora` = NOW() WHERE `identificador` = '".$identificador."' LIMIT 1";
       $resultado = mysql_query($query) or die(mysql_error());
 
-      $atualizado = null; 
       if ($resultado){
-        $atualizado = (bool)(mysql_affected_rows() == 1);
+        $atualizado = (mysql_affected_rows() == 1);
+
       }
     }
+
+
     // Se o visitante é novo OU se o registro dele ele não foi atualizado, insere um novo registro na tabela
-    if ($novo OR !$atualizado) {
+    if ($novo)  {
+       
       $query = "INSERT INTO `".$this->_VO['tabela_v']."` VALUES (NULL, '".$_SERVER["REMOTE_ADDR"]."', '".$identificador."', NOW())";
       mysql_query($query) or die(mysql_error());
     }
@@ -87,7 +92,7 @@ class VisitantesOnline{
       mysql_query($query);
     }
     // Atualiza o cookie com o identificador do visitante
-    setcookie($this->_VO['cookieNome'], $identificador, time() + ($this->_VO['cookieTempo'] * 60), '');
+    setcookie($this->_VO['cookieNome'], $identificador, time() + ($this->_VO['cookieTempo'] * 60), '/');
     return true;
   }
   /**

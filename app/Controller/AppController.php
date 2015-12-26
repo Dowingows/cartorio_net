@@ -72,14 +72,6 @@ class AppController extends Controller {
 
     public function beforeFilter() {
 
-        //Pegando a quantidade de visitantes online
-        $VisitantesOnline = new VisitantesOnline();
-        $this->visitantesOnline = $VisitantesOnline->visitantesOnline();
-
-        //colocando uma quantidade minima (fictícia) de clientes online 
-        $this->visitantesOnline = $this->visitantesOnline + rand ( 25 , 55 );
-        $this->set("visitantes_online", $this->visitantesOnline);
-
         $this->Security->validatePost = false;
         $this->Security->enabled = false;
         $this->Security->csrfCheck = false;

@@ -364,7 +364,7 @@
                   <?= $this->Html->image('chat-online.png', array('style' => 'margin-top:30px;width:75%;')) ?></a> 
               </div>
               <div class="grid_2" style="text-align:center;">
-                  <p style="margin-top:45px;color:#FFFFFF"><i class="icon-users"></i> Visitantes Online: <?= $visitantes_online?></p>
+                  <p style="margin-top:45px;color:#FFFFFF"><i class="icon-users"></i> Visitantes Online: <?= $this->Session->read('visitantes_online')?></p>
               </div>
             </div>    
           </div>

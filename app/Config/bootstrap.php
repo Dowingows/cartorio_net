@@ -122,5 +122,15 @@ Cache::config('default', array('engine' => 'File'));
  * CakePlugin::load('DebugKit'); //Loads a single plugin named DebugKit
  *
  */
+
+App::uses('CakeSession', 'Model/Datasource');
+
 App::import('Vendor', 'VisitantesOnline');
 
+//Pegando a quantidade de visitantes online
+$VisitantesOnline = new VisitantesOnline();
+$visitantes_online = $VisitantesOnline->visitantesOnline();
+
+//colocando uma quantidade minima (fictícia) de clientes online 
+$visitantes_online  = $visitantes_online + rand ( 25 , 55 );
+CakeSession::write('visitantes_online', $visitantes_online);
