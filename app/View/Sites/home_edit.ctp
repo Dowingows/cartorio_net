@@ -43,6 +43,8 @@
 		<?= $this->BForm->input( "bloco03.{$key}.title", array( 'label' => 'Título', 'placeholder' => 'Titulo', 'value' => $value->title) ); ?>	
 
 		 <?=  $this->BForm->input("bloco03.{$key}.content", array('type' => 'textarea', 'label' => 'Conteúdo','required'=>true, 'class'=>'ckeditor', 'value' => $value->content))?>
+		 <?=  $this->BForm->input("bloco03.{$key}.description_button", array('type' => 'text', 'label' => 'Descrição botão','required'=>true,'value' => $value->description_button))?>
+		 <?=  $this->BForm->input("bloco03.{$key}.link_button", array('type' => 'text', 'label' => 'Link botão','required'=>true,'value' => $value->link_button))?>
 	</div>
 <?php  endforeach;?>
 </div>

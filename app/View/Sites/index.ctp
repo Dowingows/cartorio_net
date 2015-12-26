@@ -131,7 +131,7 @@
                   <h2 style="color:rgb(234, 128, 21)"><?= $value->title ?></h2>
                   <?= $value->content ?>
                   </div>
-                  <a href="#" class="btn2">Mais...</a>              
+                  <a href="<?= $value->link_button ?>" class="btn2"><?= $value->description_button ?></a>              
                 </div>
               <?php endforeach; ?>
               
