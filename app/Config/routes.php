@@ -27,7 +27,9 @@
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
 Router::connect('/', array('controller' => 'sites', 'action' => 'index', 'home'));
-Router::connect('/institucional', array('controller' => 'sites', 'action' => 'sigle_page', 2));
+Router::connect('/institucional', array('controller' => 'sites', 'action' => 'single_page', 2));
+Router::connect('/depoimentos', array('controller' => 'sites', 'action' => 'single_page', 3));
+
 Router::connect('/admin', array('controller' => 'pages', 'action' => 'display', 'home'));
 
 Router::connect('/servicos', array('controller' => 'SolicitacaoServicos', 'action' => 'solicitar_servico'));

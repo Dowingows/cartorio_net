@@ -41,7 +41,7 @@ class SolicitacaoServicosController extends AppController {
 
     public function servicos() {
 
-        $this->checkAccess($this->name, __FUNCTION__);
+        //$this->checkAccess($this->name, __FUNCTION__);
 
         $this->paginate['contain'] = array('DadoDocumento' => 'TipoServico');
         $this->paginate['fields'] = array('id', 'nome_solicitante', 'cpf_cnpj_solicitante', 'email_solicitante', 'email_send', 'created');

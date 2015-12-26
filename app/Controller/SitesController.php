@@ -41,9 +41,10 @@ class SitesController extends AppController {
         $this->layout = "site";
     }
 
-    public function sigle_page($id) {
+    public function single_page($id) {
 
-        $data = $this->Page->findById($id);
+        $this->params['pass'];
+        $data = $this->Page->findById( $this->params['pass'][0]);
 
         $this->set("data", $data);
         $this->layout = "site";
@@ -123,7 +124,20 @@ class SitesController extends AppController {
     }
 
     public function page_add() {
-        
+
+      if ($this->request->isPost()) {
+
+            $this->Page->create($this->request->data);
+
+            if ($this->Page->validates()) {
+
+                if ($this->Page->save(null, false)) {
+                    $this->setMessage('saveSuccess', 'Page');
+                } else
+                    $this->setMessage('saveError', 'Page');
+            } else
+                $this->setMessage('validateError');
+        }       
     }
 
     public function page_edit($id) {
