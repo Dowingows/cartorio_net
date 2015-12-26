@@ -37,5 +37,5 @@
 
 <script>
     CKEDITOR.config.extraPlugins = 'imagebrowser';
-    CKEDITOR.config.imageBrowser_listUrl  = "http://localhost/cartorio_net/Repositories/list_json";
+    CKEDITOR.config.imageBrowser_listUrl  = "<?=(!empty($_SERVER['HTTPS']) ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $this->Html->url('/Repositories/')?>"+"list_json";
 </script>
