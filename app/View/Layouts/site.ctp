@@ -52,6 +52,28 @@
 
     <style type="text/css">
 
+    .single_page p {
+      font-size: 1.1em;
+      line-height: 1.25em;
+      margin: 1.25em 0;
+      text-align: left;
+    }
+
+    .single_page a {
+      font: inherit;
+      color: rgb(234, 128, 21);
+      text-decoration: none;
+    }
+
+    .single_page a:active {
+      color: rgb(234, 128, 21);
+    }
+
+    .single_page a:hover {
+      color: red;
+
+    } 
+
       table.well1 {
         width: 100%;
         border: 0px;
@@ -224,6 +246,7 @@
     }
     .well1 a:hover {
       color: #777777;
+      text-decoration: none;
     }
 
     .banner li:hover {
@@ -314,15 +337,78 @@
     h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
         color: rgb(234, 128, 21);
     }
-    
-    /*
-    footer {
-      background: rgb(0, 0, 0);
-    }
 
-    .icon2:before {
-      background: rgba(0, 0, 0, 0.78)
-    }*/
+   blockquote{
+    display:block;
+    background: #fff;
+    padding: 15px 20px 15px 45px;
+    margin: 0 0 20px;
+    position: relative;
+    
+    /*Font*/
+    font-family: Georgia, serif;
+    font-size: 16px;
+    line-height: 1.2;
+    color: #666;
+    text-align: justify;
+    
+    /*Borders - (Optional)*/
+    border-left: 15px solid #c76c0c;
+    border-right: 2px solid #c76c0c;
+    
+    /*Box Shadow - (Optional)*/
+    -moz-box-shadow: 2px 2px 15px #ccc;
+    -webkit-box-shadow: 2px 2px 15px #ccc;
+    box-shadow: 2px 2px 15px #ccc;
+  }
+
+  blockquote::before{
+    content: "\201C"; /*Unicode for Left Double Quote*/
+    
+    /*Font*/
+    font-family: Georgia, serif;
+    font-size: 60px;
+    font-weight: bold;
+    color: #999;
+    
+    /*Positioning*/
+    position: absolute;
+    left: 10px;
+    top:5px;
+  }
+
+  blockquote::after{
+    /*Reset to make sure*/
+    content: "";
+  }
+
+  blockquote a{
+    text-decoration: none;
+    background: #eee;
+    cursor: pointer;
+    padding: 0 3px;
+    color: #c76c0c;
+  }
+
+  blockquote a:hover{
+   color: #666;
+  }
+
+  blockquote em{
+    font-style: italic;
+  }
+
+  .contact-list a:hover {
+      color: rgba(234, 128, 21, 0.41);
+  }
+      /*
+  footer {
+    background: rgb(0, 0, 0);
+  }
+
+  .icon2:before {
+    background: rgba(0, 0, 0, 0.78)
+  }*/
 
 
     </style>
@@ -364,7 +450,7 @@
                   <?= $this->Html->image('chat-online.png', array('style' => 'margin-top:30px;width:75%;')) ?></a> 
               </div>
               <div class="grid_2" style="text-align:center;">
-                  <p style="margin-top:45px;color:#FFFFFF"><i class="icon-users"></i> Visitantes Online: <?= $this->Session->read('visitantes_online')?></p>
+                  <p style="margin-top:45px;color:#FFFFFF; font-size:1em"><i class="icon-users"></i> Visitantes Online: <?= $this->Session->read('visitantes_online')?></p>
               </div>
             </div>    
           </div>
@@ -386,6 +472,14 @@
         <section class="well3">
           <div class="container">
             <ul class="row contact-list">
+              <div class="grid_4">
+                <div class="box">
+                  <div class="box_cnt__no-flow" style="">
+                    <?= $this->Html->image('logo3.png',array('alt' => 'Cartório Net', 'width' => '75%'))?>
+                    <p style="margin-top:2px">Endereço: <?=$setting['address']?></br>CNPJ: <?=$setting['cnpj']?></p>
+                  </div>
+                  </div>
+              </div>
               <li class="grid_4">
                 <div class="box">
                   <div class="box_aside">

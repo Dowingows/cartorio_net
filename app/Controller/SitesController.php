@@ -18,7 +18,7 @@ class SitesController extends AppController {
         parent::beforeRender();
         parent::beforeFilter();
         
-        $this->Auth->allow('index', 'sigle_page', 'servico_advogado', 'contato');
+        $this->Auth->allow('index', 'single_page', 'servico_advogado', 'contato');
         $this->Security->unlockedActions = array('servicos', 'edit_slider', 'contato', 'servico_advogado');
 
         $setting = $this->Setting->find('first');
