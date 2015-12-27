@@ -399,7 +399,7 @@
   }
 
   .contact-list a:hover {
-      color: rgba(234, 128, 21, 0.41);
+      color: #777777;
   }
       /*
   footer {
@@ -475,7 +475,7 @@
               <div class="grid_4">
                 <div class="box">
                   <div class="box_cnt__no-flow" style="">
-                    <?= $this->Html->image('logo3.png',array('alt' => 'Cartório Net', 'width' => '75%'))?>
+                    <?= $this->Html->image('logo3.png', array('width' => '75%'))?>
                     <p style="margin-top:2px">Endereço: <?=$setting['address']?></br>CNPJ: <?=$setting['cnpj']?></p>
                   </div>
                   </div>
@@ -493,7 +493,7 @@
                   <div class="box_aside">
                     <div class="icon2 fa-envelope"></div>
                   </div>
-                  <div class="box_cnt__no-flow"><a href="<?= $this->Html->url('/contato')?>"><?= $setting['email_contact']?></a></div>
+                  <div class="box_cnt__no-flow"><a href="<?= $this->Html->url('/contato')?>"><?= $setting['email_contact'] ?></a></div>
                 </div>
               </li>
 <!--               <li class="grid_4">
@@ -529,8 +529,17 @@
         </section>
         <section>
           <div class="container">
-            <div class="copyright">Copyright © <span id="copyright-year"></span> Cartório Net. Todos os direitos reservados. 
+            <div class="grid_5">
+              <div class="copyright">Copyright © <span id="copyright-year"></span   > Cartório Net. Todos os direitos reservados. 
+              </div>
+
             </div>
+            <div class="grid_7">
+              <div class="copyright" style="float:right;">
+                <span style="margin-top:100px">Formas de pagamento:</span> <?= $this->Html->image('boleto.png') ?>
+              </div>
+            </div>
+            
           </div
         </section>
       </footer>

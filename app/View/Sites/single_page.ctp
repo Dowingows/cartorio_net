@@ -8,7 +8,6 @@
             <h2><?= $data['Page']['title']?></h2>
             <hr>
             <?= $data['Page']['content']?>  
-            lkdflkasndfas sdf <a href="">sdfsd</a>        
           </div>
         </section>
       </main>

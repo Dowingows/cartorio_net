@@ -43,13 +43,13 @@ print $this->Form->create("SolicitacaoServico", array("class" => "form-horizonta
                                         <?= $this->BForm->input('SolicitacaoServico.nome_solicitante', array('label' => 'Nome', 'placeholder' => 'Nome ', 'div' => false, 'class' => 'form-control')); ?>
                                     </div>
                                     <div class="col-lg-6">
-                                        <?= $this->BForm->input('SolicitacaoServico.cpf_cnpj_solicitante', array("label" => 'CPF/CNPJ', 'placeholder' => 'CPF/CNPJ', 'div' => false, 'class' => 'form-control')); ?>
+                                        <?= $this->BForm->input('SolicitacaoServico.cpf_cnpj_solicitante', array("label" => 'CPF/CNPJ', 'required' => false,'placeholder' => 'CPF/CNPJ', 'div' => false, 'class' => 'form-control')); ?>
                                     </div>
                                     <div class="col-lg-6">
                                         <?= $this->BForm->input('SolicitacaoServico.rg_solicitante', array("label" => 'RG', 'placeholder' => 'RG', 'required' => false, 'div' => false, 'class' => 'form-control')); ?>
                                     </div>
                                     <div class="col-lg-6">
-                                        <?= $this->BForm->input('SolicitacaoServico.telefone_1_solicitante', array("label" => 'Telefone 1', 'placeholder' => 'Telefone', 'div' => false, 'class' => 'form-control')); ?> 
+                                        <?= $this->BForm->input('SolicitacaoServico.telefone_1_solicitante', array("label" => 'Telefone 1', 'placeholder' => 'Telefone', 'required' => false,'div' => false, 'class' => 'form-control')); ?> 
                                     </div >
                                     <div class="col-lg-6">
                                         <?= $this->BForm->input('SolicitacaoServico.ramal_solicitante', array("label" => 'Ramal', 'placeholder' => 'Ramal', 'required' => false, 'div' => false, 'class' => 'form-control')); ?>

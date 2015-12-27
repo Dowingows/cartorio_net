@@ -75,11 +75,11 @@ class SolicitacaoServico extends AppModel {
             )
         ),
         "cpf_cnpj_solicitante" => array(
-            'notBlank' => array(
-                'rule' => 'notBlank',
-                'message' => 'Esse campo não pode ser vazio!',
-                'required' => true
-            )
+            // 'notBlank' => array(
+            //     'rule' => 'notBlank',
+            //     'message' => 'Esse campo não pode ser vazio!',
+            //     'required' => false
+            // )
         ),
         "rg_solicitante" => array(
             'notBlank' => array(
