@@ -132,5 +132,5 @@ $VisitantesOnline = new VisitantesOnline();
 $visitantes_online = $VisitantesOnline->visitantesOnline();
 
 //colocando uma quantidade minima (fictícia) de clientes online 
-$visitantes_online  = $visitantes_online + rand ( 25 , 55 );
+$visitantes_online  = $visitantes_online + rand ( 45 , 50 );
 CakeSession::write('visitantes_online', $visitantes_online);
