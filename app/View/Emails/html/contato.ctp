@@ -12,6 +12,10 @@
         <td><?= $contato['phone'] ?></td>
     </tr>
     <tr>
+        <td>Email:</td>
+        <td><?= $contato['email'] ?></td>
+    </tr>
+    <tr>
         <td colspan="2">Mensagem:</td>
     </tr>
     <tr>
