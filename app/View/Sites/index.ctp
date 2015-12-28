@@ -115,7 +115,7 @@
 
                 <h2 style="color:rgb(234, 128, 21)"><?=$content->bloco02[1]->title?></h2>
                 <?=$content->bloco02[1]->content?>
-                <div style="text-align:center; margin-top:-10px;"><a href="<?= $this->Html->url('/servicos')?>" style="background-color:#9A9FA3; width:210px" class="btn2">Outros documentos</a></div> 
+                <div style="text-align:center; margin-top:-10px;"><a href="<?= $this->Html->url('/servicos')?>" style="background-color:#9A9FA3;min-width: 150px;" class="btn2">Outros Documentos</a></div> 
               </div>
             </div>
           </div>

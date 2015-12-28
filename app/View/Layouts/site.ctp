@@ -74,18 +74,19 @@
 
     } 
 
-      table.well1 {
-        width: 100%;
-        border: 0px;
-      }
+     
 
-      table.well1 td {
-        padding: 15px 15px;
+    .well1 table td {
+        padding: 5px 5px;
         line-height: 18px;
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
       }
+
+    .well1 table td li {
+      margin-left: 25px;
+    }
       .brand_name{
         width: 40%;
       }

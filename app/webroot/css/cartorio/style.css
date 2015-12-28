@@ -403,7 +403,7 @@ p + .btn_wr {
 .btn,
 .btn2 {
   display: inline-block;
-  width: 150px;
+  min-width: 150px;
   padding: 16px;
   font-size: 16px;
   line-height: 18px;
