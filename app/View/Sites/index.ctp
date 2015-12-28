@@ -7,7 +7,7 @@
           <div>
             <ul class="bxslider">
               <?php foreach ($slider as $image):?>                
-                  <li><a href=""><img style="margin-left:auto; margin-right:auto; width:100%" src="<?= $image ?>"/></a></li>             
+                  <li><a href=""><img style="margin-left:auto; margin-right:auto;" src="<?= $image ?>"/></a></li>             
               <?php endforeach; ?>
             </ul>
           </div>
