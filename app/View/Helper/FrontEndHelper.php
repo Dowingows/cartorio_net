@@ -156,5 +156,15 @@ class FrontEndHelper extends AppHelper {
 
         return $this->Html->url("/".$repository->getImageUrl($repository_id),TRUE);
     }
-
+    
+    public function boolFormater($val){
+        $string="";
+        if(!empty($val)){
+            $string ='<i class="icon-ok"></i>';
+        }else{
+            $string ='<i class="icon-remove"></i>';
+            
+        }
+        return $string;
+    }
 }

@@ -32,7 +32,7 @@ class SolicitacaoServico extends AppModel {
 
             $dados_documento['tipo_servico_id'] = array('label' => 'Servi&ccedil;o', 'value' => $solicitacao['DadoDocumento']['TipoServico']['nome']);
 //        Removido região  
-        //  $dados_documento['regiao'] = array('label' => 'Regi&atilde;o', 'value' => $solicitacao['DadoDocumento']['regiao']);
+            //  $dados_documento['regiao'] = array('label' => 'Regi&atilde;o', 'value' => $solicitacao['DadoDocumento']['regiao']);
 //            pr($fields_array);
 //            die;
             foreach ($fields_array as $field) {
@@ -76,25 +76,25 @@ class SolicitacaoServico extends AppModel {
             )
         ),
         "cpf_cnpj_solicitante" => array(
-            // 'notBlank' => array(
-            //     'rule' => 'notBlank',
-            //     'message' => 'Esse campo não pode ser vazio!',
-            //     'required' => false
-            // )
+        // 'notBlank' => array(
+        //     'rule' => 'notBlank',
+        //     'message' => 'Esse campo não pode ser vazio!',
+        //     'required' => false
+        // )
         ),
         "rg_solicitante" => array(
-            // 'notBlank' => array(
-            //     'rule' => 'notBlank',
-            //     'message' => 'Esse campo não pode ser vazio!',
-            //     'required' => true
-            // )
+        // 'notBlank' => array(
+        //     'rule' => 'notBlank',
+        //     'message' => 'Esse campo não pode ser vazio!',
+        //     'required' => true
+        // )
         ),
         "telefone_1_solicitante" => array(
-            // 'notBlank' => array(
-            //     'rule' => 'notBlank',
-            //     'message' => 'Esse campo não pode ser vazio!',
-            //     'required' => false
-            // )
+        // 'notBlank' => array(
+        //     'rule' => 'notBlank',
+        //     'message' => 'Esse campo não pode ser vazio!',
+        //     'required' => false
+        // )
         ),
         "email_solicitante" => array(
             'notBlank' => array(
@@ -132,5 +132,53 @@ class SolicitacaoServico extends AppModel {
 //            )
 //        )
     );
+
+    public function send_email($id) {
+
+        $solicitacao = $this->getSolicitacao($id);
+        
+        App::import('Model', 'Setting');
+
+        $settingModel = new Setting();
+
+        $setting = $settingModel->find('first', array('fields' => 'email_contact'));
+        $email_contact = empty($setting['Setting']['email_contact']) ? '' : $setting['Setting']['email_contact'];
+
+        App::uses('CakeEmail', 'Network/Email');
+
+        $Email = new CakeEmail();
+        $Email->config('smtp');
+        $Email->template('servicos', null);
+        
+        $Email->viewVars(array('solicitacao' => $solicitacao));
+
+        $Email->to($email_contact);
+        $Email->emailFormat('html');
+        $Email->subject('Cartório NET - Solicitação de Serviço');
+        /*#### DEBUG ####*/
+//        $Email->transport('Debug');
+//        $response = $Email->send();
+//
+//        echo $response['message'];
+//        die;
+         /*#### END DEBUG ####*/
+        $success = false;
+
+        try {
+            if ($Email->send()) {
+                $success = true;
+            } else {
+                $success = false;
+            }
+        } catch (Exception $e) {
+//            pr($e);
+//            die;
+            $success = false;
+        }
+        $this->id = $id;
+        $this->saveField('email_send', $success);
+        
+        return $success;
+    }
 
 }

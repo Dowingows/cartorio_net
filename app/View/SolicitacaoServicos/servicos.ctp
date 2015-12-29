@@ -14,6 +14,7 @@
                 <th><?= $this->Paginator->sort("DadoDocumento.TipoServico", "Serviço") ?></th>
                 <th><?= $this->Paginator->sort("cpf_cnpj_solicitante", "Enviado?") ?></th>
                 <th><?= $this->Paginator->sort("cpf_cnpj_solicitante", "Enviada em") ?></th>
+                <th>Reenviar?</th>
             </tr>
         </thead>
         <tbody>
@@ -25,8 +26,9 @@
                     <td><?= $solicitacao['SolicitacaoServico']['email_solicitante'] ?></td>
                     <td><?= $solicitacao['SolicitacaoServico']['cpf_cnpj_solicitante'] ?></td>
                     <td><?= $solicitacao['DadoDocumento']['TipoServico']['nome'] ?></td>
-                    <td><?= $solicitacao['SolicitacaoServico']['email_send'] ?></td>
+                    <td><?= $this->Frontend->boolFormater($solicitacao['SolicitacaoServico']['email_send']) ?></td>
                     <td><?= $this->Frontend->nicedate($solicitacao['SolicitacaoServico']['created']) ?></td>
+                    <td><?=  $this->Html->link( '<i class="icon-envelope icon-white"></i>', "/SolicitacaoServicos/resend_email/{$solicitacao['SolicitacaoServico']['id']}", array( 'class' => 'btn btn-mini btn-info', 'escape' => false ) );?></td>
                 </tr>
 
             <?php endforeach; ?>

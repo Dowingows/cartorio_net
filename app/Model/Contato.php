@@ -75,7 +75,7 @@ class Contato extends AppModel {
                     $success = false;
                 }
             } catch (Exception $e) {
-                pr($e);die;
+//                pr($e);die;
                 $success = false;
             }
 

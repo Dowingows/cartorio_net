@@ -56,7 +56,7 @@ class SolicitacaoServicosController extends AppController {
             $this->SolicitacaoServico->create($this->request->data);
             if ($this->SolicitacaoServico->saveAll($this->request->data, array('validate' => 'only'))) {
                 if ($this->SolicitacaoServico->saveAll($this->request->data, array('validate' => false))) {
-                    $this->send_email($this->SolicitacaoServico->id);
+                    $this->SolicitacaoServico->send_email($this->SolicitacaoServico->id);
                     $this->setMessage('emailSuccess');
                     $this->request->data = array();
                 } else
@@ -86,10 +86,17 @@ class SolicitacaoServicosController extends AppController {
     }
 
     public function resend_email($id) {
-        return $this->send_email($id);
+        $this->autoRender=false;
+        if($this->SolicitacaoServico->send_email($id)){
+            $this->setMessage('emailSuccess');
+        }else{ 
+            $this->setMessage('emailError');
+        }
+        
+         $this->redirect(array('controller' => $this->name, 'action' => 'view_solicitacao', $id));
     }
 
-    private function send_email($id) {
+   /* private function send_email($id) {
         $solicitacao = $this->SolicitacaoServico->getSolicitacao($id);
 
         $setting = $this->Setting->find('first', array('fields' => 'email_contact'));
@@ -110,7 +117,7 @@ class SolicitacaoServicosController extends AppController {
         $Email->send();
         
         return $this->redirect(array('controller'=>$this->name,'action'=>'solicitar_servico'));
-    }
+    }*/
 
     private function createInputsServico($id, $data = array()) {
         $this->TipoServico->contain(array());
