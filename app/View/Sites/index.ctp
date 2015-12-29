@@ -7,7 +7,7 @@
           <div>
             <ul class="bxslider">
               <?php foreach ($slider as $image):?>                
-                  <li><a href=""><img style="margin-left:auto; margin-right:auto;" src="<?= $image ?>"/></a></li>             
+                  <li><a href=""><img style="margin-left:auto; margin-right:auto;height:450px;" src="<?= $image ?>"/></a></li>             
               <?php endforeach; ?>
             </ul>
           </div>
@@ -222,6 +222,7 @@
       speed: 2000,
       pager:false,
       auto:true,
-      pause: 5000
+      pause: 5000,
+
     });
   </script>
