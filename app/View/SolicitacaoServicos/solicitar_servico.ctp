@@ -194,6 +194,7 @@ print $this->Form->create("SolicitacaoServico", array("class" => "form-horizonta
                 },
                 complete: function () {
                     $('#DadoDocumentoEstado').bind('change', $change_municipio);
+                    $('#DadoDocumentoUf').bind('change', $change_municipio);
                 }
             });
         } else {

@@ -141,6 +141,9 @@ class SolicitacaoServicosController extends AppController {
                     if ($field == 'estado') {
                         $setting['options'] = $this->Estado->find('list', array('fields' => array('sigla', 'sigla'), 'order' => 'sigla ASC'));
                     }
+                    if ($field == 'uf') {
+                        $setting['options'] = $this->Estado->find('list', array('fields' => array('sigla', 'sigla'), 'order' => 'sigla ASC'));
+                    }
                 }
 
                 $setting['div'] = false;
