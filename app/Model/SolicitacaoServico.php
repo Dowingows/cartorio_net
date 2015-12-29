@@ -83,18 +83,18 @@ class SolicitacaoServico extends AppModel {
             // )
         ),
         "rg_solicitante" => array(
-            'notBlank' => array(
-                'rule' => 'notBlank',
-                'message' => 'Esse campo não pode ser vazio!',
-                'required' => true
-            )
+            // 'notBlank' => array(
+            //     'rule' => 'notBlank',
+            //     'message' => 'Esse campo não pode ser vazio!',
+            //     'required' => true
+            // )
         ),
         "telefone_1_solicitante" => array(
-            'notBlank' => array(
-                'rule' => 'notBlank',
-                'message' => 'Esse campo não pode ser vazio!',
-                'required' => true
-            )
+            // 'notBlank' => array(
+            //     'rule' => 'notBlank',
+            //     'message' => 'Esse campo não pode ser vazio!',
+            //     'required' => false
+            // )
         ),
         "email_solicitante" => array(
             'notBlank' => array(
