@@ -45,11 +45,7 @@
 class EmailConfig {
 
     public $default = array(
-        'transport' => 'Mail',
-        'from' => 'you@localhost',
-            //'charset' => 'utf-8',
-            //'headerCharset' => 'utf-8',
-    );
+        'transport' => 'Mail');
     public $gmail = array(
         'host' => 'ssl://smtp.gmail.com',
         'port' => 465,
@@ -65,12 +61,12 @@ class EmailConfig {
     );
     public $smtp = array(
         'transport' => 'Smtp',
-        'from' => array('contato@cartorionet.com' => 'Cart&oacute;rio'),
-        'host' => 'localhost',
-        'port' => 25,
+        'from' => array('contato@cartorionet.com' => 'Cartório'),
+        'host' => 'mail.cartorionet.com',
+        'port' => 26,
         'timeout' => 30,
         'username' => 'contato@cartorionet.com',
-        'password' => 'cartorionet2016',
+        'password' => 'cartorio@123',
         'client' => null,
         'log' => false
             //'charset' => 'utf-8',

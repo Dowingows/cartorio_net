@@ -31,7 +31,8 @@ class SolicitacaoServico extends AppModel {
             $fields_array = !empty($solicitacao['DadoDocumento']['TipoServico']['fields']) ? explode(',', $solicitacao['DadoDocumento']['TipoServico']['fields']) : array();
 
             $dados_documento['tipo_servico_id'] = array('label' => 'Servi&ccedil;o', 'value' => $solicitacao['DadoDocumento']['TipoServico']['nome']);
-            $dados_documento['regiao'] = array('label' => 'Regi&atilde;o', 'value' => $solicitacao['DadoDocumento']['regiao']);
+//        Removido região  
+        //  $dados_documento['regiao'] = array('label' => 'Regi&atilde;o', 'value' => $solicitacao['DadoDocumento']['regiao']);
 //            pr($fields_array);
 //            die;
             foreach ($fields_array as $field) {

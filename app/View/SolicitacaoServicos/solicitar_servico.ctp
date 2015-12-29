@@ -99,12 +99,10 @@ print $this->Form->create("SolicitacaoServico", array("class" => "form-horizonta
                         <div class="panel panel-default">
                         <div class="panel-heading">Dados do documento</div>
                         <div class="panel-body">
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                 <?= $this->BForm->input('DadoDocumento.tipo_servico_id', array("label" => 'Serviço', 'options' => $tipos_servico, 'type' => 'select', 'empty' => '-- Selecione o Serviço --', 'div' => false, 'class' => 'form-control')); ?>   
                             </div>
-                            <div class="col-lg-6">
-                                <?= $this->BForm->input('DadoDocumento.regiao', array("label" => 'Região', 'type' => 'select', 'div' => false, 'class' => 'form-control')); ?>  
-                            </div>
+                            
                             <div id="document_fields">
                                 <?= $inputs ?>
                             </div>

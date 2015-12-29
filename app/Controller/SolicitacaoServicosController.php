@@ -57,7 +57,7 @@ class SolicitacaoServicosController extends AppController {
             if ($this->SolicitacaoServico->saveAll($this->request->data, array('validate' => 'only'))) {
                 if ($this->SolicitacaoServico->saveAll($this->request->data, array('validate' => false))) {
                     $this->send_email($this->SolicitacaoServico->id);
-                    $this->setMessage('saveSuccess', 'SolicitacaoServico');
+                    $this->setMessage('emailSuccess');
                     $this->request->data = array();
                 } else
                     $this->setMessage('saveError', 'SolicitacaoServico');
@@ -109,7 +109,7 @@ class SolicitacaoServicosController extends AppController {
         $Email->subject('Cartório NET - Solicitação de Serviço');
         $Email->send();
         
-        $this->redirect('/servicos');
+        return $this->redirect(array('controller'=>$this->name,'action'=>'solicitar_servico'));
     }
 
     private function createInputsServico($id, $data = array()) {
