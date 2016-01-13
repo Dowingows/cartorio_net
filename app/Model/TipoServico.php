@@ -6,7 +6,7 @@ class TipoServico extends AppModel {
       ---------------------------------------- */
 
     public $name = 'TipoServico';
-    public $label = 'Tipos de Servi&ccedil;os;';
+    public $label = 'Tipos de Servi&ccedil;os';
     public $gender = 'o';
     public $useTable = 'tipos_servicos';
     public $displayField = 'nome';
