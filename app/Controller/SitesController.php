@@ -8,7 +8,7 @@ class SitesController extends AppController {
     public $name = "Sites";
     public $setMenu = "Sites";
     public $submenu = array('page_index', 'page_add');
-    public $uses = array('Setting', 'Page', 'SolicitacaoServico', 'TipoServico', 'Repository', 'Contato');
+    public $uses = array('Setting', 'Page', 'SolicitacaoServico', 'TipoServico','TipoServicosAdv', 'Repository', 'Contato');
 
     /* ----------------------------------------
      * Actions
@@ -83,7 +83,8 @@ class SitesController extends AppController {
             }
         }
 
-        $options = array('Advogado Correspondente', 'Advogado Audiencista', 'Cópia de Processos', 'Despacho com magistrados','Protocolo de petições', 'Acompanhamento junto a órgão Públicos', 'Preposto', 'Outros');
+        $options = $this->TipoServicosAdv->find('list');
+        
         $this->set('options', $options);
         $this->layout = "site";
     }

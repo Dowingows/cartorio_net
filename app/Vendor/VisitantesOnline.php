@@ -22,8 +22,8 @@ class VisitantesOnline{
     $this->_VO['cookieNome'] = 'VisOnline';  // Nome do cookie usado para identificar o visitante
     $this->_VO['servidor'] = 'localhost';    // Servidor MySQL
     $this->_VO['usuario'] = 'root';          // Usuário MySQL
-    $this->_VO['senha'] = '';                // Senha MySQL
-    $this->_VO['banco'] = 'carto739_cartorio_net';            // Banco de dados MySQL
+    $this->_VO['senha'] = '123456';                // Senha MySQL
+    $this->_VO['banco'] = 'cartorio_net';            // Banco de dados MySQL
     $this->_VO['tabela_v'] = 'visitas_online'; // Tabela onde os visitantes online serão salvos
     $this->_VO['tabela_r'] = 'visitas_record'; // Tabela onde os recordes de visitas serão salvos
 
