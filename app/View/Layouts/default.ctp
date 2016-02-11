@@ -26,9 +26,9 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= $this->Session->read( "Auth.User.name" ) ?> <b class="caret"></b></a>
 				    <ul class="dropdown-menu">
-				    	<li><?= $this->Html->link( '<i class="icon-off"></i> Sair', '/users/logout', array( 'escape' => false ) ) ?></li>
-						<li><?= $this->Html->link( '<i class="icon-user"></i> Meus dados', '/users/manageAccount', array( 'escape' => false ) ) ?></li>
-						<li><?= $this->Html->link( '<i class="icon-engine"></i> Configurações', '/Settings/', array( 'escape' => false ) ) ?></li>
+				    	<li><?= $this->Html->link( '<i class="icon-off"></i> Sair', '/admin/users/logout', array( 'escape' => false ) ) ?></li>
+						<li><?= $this->Html->link( '<i class="icon-user"></i> Meus dados', '/admin/users/manageAccount', array( 'escape' => false ) ) ?></li>
+						<li><?= $this->Html->link( '<i class="icon-engine"></i> Configurações', '/admin/Settings/', array( 'escape' => false ) ) ?></li>
 						<li class="divider"></li>
 						<li class="nav-header">Último Login</li>
 						<?php

@@ -69,7 +69,7 @@ class PagesController extends AppController {
         $this->set('data', $data);
     }
 
-    public function display() {
+    public function admin_display() {
         $path = func_get_args();
 
         $count = count($path);

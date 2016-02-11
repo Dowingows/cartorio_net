@@ -14,9 +14,9 @@ class RepositoriesController extends AppController {
      * Actions
       ---------------------------------------- */
 
-    public function index() {
+    public function admin_index() {
 
-        $this->checkAccess($this->name, __FUNCTION__);
+        //$this->checkAccess($this->name, __FUNCTION__);
 
         $repositories = $this->paginate('Repository');
 
@@ -27,8 +27,8 @@ class RepositoriesController extends AppController {
         }
     }
 
-    public function add() {
-        $this->checkAccess($this->name, __FUNCTION__);
+    public function admin_add() {
+        //$this->checkAccess($this->name, __FUNCTION__);
 
         if ($this->request->isPost()) {
 
@@ -49,9 +49,9 @@ class RepositoriesController extends AppController {
         }
     }
 
-    public function edit($id) {
+    public function admin_edit($id) {
 
-        $this->checkAccess($this->name, 'add');
+        ///$this->checkAccess($this->name, 'add');
 
 
         if (!$this->request->isPut()) {
@@ -70,7 +70,7 @@ class RepositoriesController extends AppController {
         }
     }
 
-    public function delete($id) {
+    public function admin_delete($id) {
         if ($this->Repository->deleteFile($id)) {
             $this->setMessage('deleteSuccess', 'Repository');
         } else {
@@ -79,7 +79,7 @@ class RepositoriesController extends AppController {
         $this->redirect(array('controller' => $this->name, 'action' => 'index'));
     }
 
-    public function list_json() {
+    public function admin_list_json() {
         $this->layout = null;
         $this->autoRender = false;
 

@@ -30,16 +30,16 @@ class SolicitacaoServicosController extends AppController {
         $this->set('data', $data);
     }
 
-    public function view_solicitacao($id) {
+    public function admin_view_solicitacao($id) {
 
-        $this->checkAccess($this->name, __FUNCTION__);
+        //$this->checkAccess($this->name, __FUNCTION__);
 
         $solicitacao = $this->SolicitacaoServico->getSolicitacao($id);
 
         $this->set('solicitacao', $solicitacao);
     }
 
-    public function servicos() {
+    public function admin_servicos() {
 
         //$this->checkAccess($this->name, __FUNCTION__);
 
@@ -85,7 +85,7 @@ class SolicitacaoServicosController extends AppController {
         $this->layout = "site";
     }
 
-    public function resend_email($id) {
+    public function admin_resend_email($id) {
         $this->autoRender=false;
         if($this->SolicitacaoServico->send_email($id)){
             $this->setMessage('emailSuccess');

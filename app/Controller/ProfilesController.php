@@ -14,15 +14,15 @@ class ProfilesController extends AppController {
      * Actions
       ---------------------------------------- */
 
-    public function index() {
+    public function admin_index() {
 
-        $this->checkAccess($this->name, __FUNCTION__);
+        //$this->checkAccess($this->name, __FUNCTION__);
         $this->set("profiles", $this->paginate("Profile"));
     }
 
-    public function view($id = null) {
+    public function admin_view($id = null) {
 
-        $this->checkAccess($this->name, __FUNCTION__);
+        //$this->checkAccess($this->name, __FUNCTION__);
 
         $profile = $this->Profile->find('first', array(
             'conditions' => array('Profile.id' => $id),
@@ -36,9 +36,9 @@ class ProfilesController extends AppController {
         $this->set("profile", $profile);
     }
 
-    public function add() {
+    public function admin_add() {
 
-        $this->checkAccess($this->name, __FUNCTION__);
+        //$this->checkAccess($this->name, __FUNCTION__);
 
         if ($this->request->isPost()) {
 
@@ -59,9 +59,9 @@ class ProfilesController extends AppController {
         $this->set("areas", $this->Profile->Area->lists());
     }
 
-    public function edit($id = null) {
+    public function admin_edit($id = null) {
 
-        $this->checkAccess($this->name, __FUNCTION__);
+        //$this->checkAccess($this->name, __FUNCTION__);
 
         if ($this->Profile->isAdmin($id)) {
 
@@ -92,9 +92,9 @@ class ProfilesController extends AppController {
         $this->set("areas", $this->Profile->Area->lists());
     }
 
-    public function delete($id = null) {
+    public function admin_delete($id = null) {
 
-        $this->checkAccess($this->name, __FUNCTION__);
+        //$this->checkAccess($this->name, __FUNCTION__);
 
         if ($this->Profile->isAdmin($id)) {
 

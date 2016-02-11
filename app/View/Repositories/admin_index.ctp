@@ -28,8 +28,8 @@
                     <td><?= $this->FrontEnd->nicedate($repository['Repository']['created']); ?></td>
                     <td>
                         
-                        <?=  $this->Html->link( '<i class="icon-edit icon-white"></i>', "/repositories/edit/{$repository['Repository']['id']}", array( 'class' => 'btn btn-mini btn-warning delete', 'escape' => false ) );?>
-                        <?=  $this->Html->link( '<i class="icon-trash icon-white"></i>', "/repositories/delete/{$repository['Repository']['id']}", array( 'class' => 'btn btn-mini btn-danger delete', 'escape' => false ) );?>
+                        <?=  $this->Html->link( '<i class="icon-edit icon-white"></i>', "/admin/repositories/edit/{$repository['Repository']['id']}", array( 'class' => 'btn btn-mini btn-warning delete', 'escape' => false ) );?>
+                        <?=  $this->Html->link( '<i class="icon-trash icon-white"></i>', "/admin/repositories/delete/{$repository['Repository']['id']}", array( 'class' => 'btn btn-mini btn-danger delete', 'escape' => false ) );?>
                     </td>
                 </tr>
 

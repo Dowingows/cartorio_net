@@ -229,4 +229,11 @@ class AppController extends Controller {
         $this->Session->setFlash($str, "default", array('class' => $class));
     }
 
+    function stringToSlug($str) {
+        // turn into slug
+        $str = Inflector::slug($str, '-');
+        // to lowercase
+        $str = strtolower($str);
+        return $str;
+    }
 }

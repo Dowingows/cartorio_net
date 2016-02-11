@@ -22,13 +22,13 @@
 
                 <tr>
                     <td><i class="icon-user"></i></td>
-                    <td><?= $this->Html->link($solicitacao['SolicitacaoServico']['nome_solicitante'], "/SolicitacaoServicos/view_solicitacao/{$solicitacao['SolicitacaoServico']['id']}", array('escape' => false)) ?></td>
+                    <td><?= $this->Html->link($solicitacao['SolicitacaoServico']['nome_solicitante'], "/admin/SolicitacaoServicos/view_solicitacao/{$solicitacao['SolicitacaoServico']['id']}", array('escape' => false)) ?></td>
                     <td><?= $solicitacao['SolicitacaoServico']['email_solicitante'] ?></td>
                     <td><?= $solicitacao['SolicitacaoServico']['cpf_cnpj_solicitante'] ?></td>
                     <td><?= $solicitacao['DadoDocumento']['TipoServico']['nome'] ?></td>
                     <td><?= $this->Frontend->boolFormater($solicitacao['SolicitacaoServico']['email_send']) ?></td>
                     <td><?= $this->Frontend->nicedate($solicitacao['SolicitacaoServico']['created']) ?></td>
-                    <td><?=  $this->Html->link( '<i class="icon-envelope icon-white"></i>', "/SolicitacaoServicos/resend_email/{$solicitacao['SolicitacaoServico']['id']}", array( 'class' => 'btn btn-mini btn-info', 'escape' => false ) );?></td>
+                    <td><?=  $this->Html->link( '<i class="icon-envelope icon-white"></i>', "/admin/SolicitacaoServicos/resend_email/{$solicitacao['SolicitacaoServico']['id']}", array( 'class' => 'btn btn-mini btn-info', 'escape' => false ) );?></td>
                 </tr>
 
             <?php endforeach; ?>

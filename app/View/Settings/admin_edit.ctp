@@ -34,7 +34,7 @@
     </div>
 </div>
 
-<?= $this->element("submit", array('cancel' => '/Settings')) ?>
+<?= $this->element("submit", array('cancel' => '/admin/Settings')) ?>
 
 <script>
     CKEDITOR.config.extraPlugins = 'imagebrowser';

@@ -8,7 +8,7 @@
         array(
             'label'=>'Institucional',
             'url'=>'/institucional',
-            'active'=>($this->name=='Sites')&&($this->action =='single_page')&&($this->params['pass'][0] == 2),
+            'active'=>($this->name=='Sites')&&($this->action =='single_page'),
         ),
         array(
             'label'=>'Serviços',
@@ -28,7 +28,7 @@
         array(
             'label'=>'depoimentos',
             'url'=>'/depoimentos',
-            'active'=>($this->name=='Sites')&&($this->action =='single_page')&&($this->params['pass'][0] == 3),
+            'active'=>($this->name=='Sites')&&($this->action =='single_page'),
         ),
         array(
             'label'=>'contato',

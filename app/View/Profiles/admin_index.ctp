@@ -16,7 +16,7 @@
 
 	<tr>
 		<td><i class="icon-tag"></i></td>
-		<td><?= $this->Html->link( $profile[ 'Profile' ][ 'name' ], "/profiles/view/{$profile['Profile']['id']}", array( 'escape' => false ) ) ?></td>
+		<td><?= $this->Html->link( $profile[ 'Profile' ][ 'name' ], "/admin/profiles/view/{$profile['Profile']['id']}", array( 'escape' => false ) ) ?></td>
 	</tr>
 		
 	<?php endforeach; ?>

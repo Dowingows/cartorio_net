@@ -14,7 +14,7 @@ class SettingsController extends AppController {
      * Actions
       ---------------------------------------- */
 
-    public function index() {
+    public function admin_index() {
         $this->Setting->contain(array());
         $setting = $this->Setting->find('first', array('ORDER' => 'created DESC'));
         
@@ -22,7 +22,7 @@ class SettingsController extends AppController {
             if ($this->request->isPost()) {
                 $this->save($this->request->data);
             }
-            $this->view = 'add';
+            $this->view = 'admin_add';
         } else {
 
             if (!$this->request->isPut()) {
@@ -30,7 +30,7 @@ class SettingsController extends AppController {
             } else {
                 $this->save($this->request->data);
             }
-            $this->view = 'edit';
+            $this->view = 'admin_edit';
         }
     }
 

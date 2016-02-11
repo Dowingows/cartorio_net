@@ -15,10 +15,10 @@ class SlidesController extends AppController {
       ---------------------------------------- */
 
     public function beforeFilter() {
-        $this->Security->unlockedActions = array('edit_slider');
+        $this->Security->unlockedActions = array('admin_edit_slider');
     }
     
-    public function edit_slider() {
+    public function admin_edit_slider() {
 
         if ($this->request->isPost()) {
             $images = array();

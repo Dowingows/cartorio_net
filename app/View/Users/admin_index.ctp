@@ -18,7 +18,7 @@
 
 	<tr>
 		<td><i class="icon-user"></i></td>
-		<td><?= $this->Html->link( $user[ 'User' ][ 'name' ], "/users/view/{$user['User']['id']}", array( 'escape' => false ) ) ?></td>
+		<td><?= $this->Html->link( $user[ 'User' ][ 'name' ], "/admin/users/view/{$user['User']['id']}", array( 'escape' => false ) ) ?></td>
 		<td><?= $user[ 'Profile' ][ 'name' ] ?></td>
 		<td><?= $user[ 'User' ][ 'email' ] ?></td>
 	</tr>

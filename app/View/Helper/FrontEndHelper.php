@@ -93,17 +93,17 @@ class FrontEndHelper extends AppHelper {
 
                 // nao eh submenu
                 if (empty($area['AreaChild']))
-                    $string .= '<li class="' . $this->optionSelected($area['controller']) . '">' . $this->Html->link($area['controller_label'], "/{$area['controller']}/{$area['action']}", array('escape' => false)) . "</li>\n";
+                    $string .= '<li class="' . $this->optionSelected($area['controller']) . '">' . $this->Html->link($area['controller_label'], "/admin/{$area['controller']}/{$area['action']}", array('escape' => false)) . "</li>\n";
 
                 else { // submenu
                     $string .= '<li class="dropdown">' .
                             '<a href="#" class="dropdown-toggle" data-toggle="dropdown">' . $area['controller_label'] . ' <b class="caret"></b></a>' .
                             '<ul class="dropdown-menu">' .
-                            '<li class="' . $this->optionSelected($area['controller']) . '">' . $this->Html->link($area['controller_label'], "/{$area['controller']}/{$area['action']}", array('escape' => false)) . "</li>\n";
+                            '<li class="' . $this->optionSelected($area['controller']) . '">' . $this->Html->link($area['controller_label'], "/admin/{$area['controller']}/{$area['action']}", array('escape' => false)) . "</li>\n";
 
                     foreach ($area['AreaChild'] as $areaChild)
                         if (!empty($permissions[$areaChild['controller']]['action'][$areaChild['action']]))
-                            $string .= '<li class="divider"></li><li class="' . $this->optionSelected($areaChild['controller']) . '">' . $this->Html->link($areaChild['controller_label'], "/{$areaChild['controller']}/{$areaChild['action']}", array('escape' => false)) . "</li>\n";
+                            $string .= '<li class="divider"></li><li class="' . $this->optionSelected($areaChild['controller']) . '">' . $this->Html->link($areaChild['controller_label'], "/admin/{$areaChild['controller']}/{$areaChild['action']}", array('escape' => false)) . "</li>\n";
 
                     $string .= '</ul></li>';
                 }
@@ -131,7 +131,7 @@ class FrontEndHelper extends AppHelper {
 
                         $action == $actionName ? $active = ' class="active"' : $active = null;
                         empty($this->iconClasses[$action]) ? $icon = null : $icon = "<i class=\"{$this->iconClasses[$action]}\"></i> ";
-                        $string .= "<li{$active}>" . $this->Html->link($icon . $permissions[$controllerName]['actions_labels'][$action], "/{$controllerName}/{$action}", array('class' => "icon {$action}", 'escape' => false)) . "</li>\n";
+                        $string .= "<li{$active}>" . $this->Html->link($icon . $permissions[$controllerName]['actions_labels'][$action], "/admin/{$controllerName}/{$action}", array('class' => "icon {$action}", 'escape' => false)) . "</li>\n";
                     }
                 }
             }

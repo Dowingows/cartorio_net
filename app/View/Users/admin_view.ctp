@@ -3,8 +3,8 @@
 		<h2 class="span10"><i class="icon-user"></i> <?= $user[ 'User' ][ 'name' ] ?></h2>
 		<div class="span2">
 		<?php
-			print $this->Html->link( '<i class="icon-trash icon-white"></i> Excluir', "/users/delete/{$user['User']['id']}", array( 'class' => 'btn btn-mini btn-danger delete', 'escape' => false ) );
-			print $this->Html->link( '<i class="icon-edit"></i> Editar', "/users/edit/{$user['User']['id']}", array( 'class' => 'btn btn-mini', 'escape' => false ) );
+			print $this->Html->link( '<i class="icon-trash icon-white"></i> Excluir', "/admin/users/delete/{$user['User']['id']}", array( 'class' => 'btn btn-mini btn-danger delete', 'escape' => false ) );
+			print $this->Html->link( '<i class="icon-edit"></i> Editar', "/admin/users/edit/{$user['User']['id']}", array( 'class' => 'btn btn-mini', 'escape' => false ) );
 		?>
 		</div>
 	</div>

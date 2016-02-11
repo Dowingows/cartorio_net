@@ -26,11 +26,11 @@
  * its action called 'display', and we pass a param to select the view file
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
-Router::connect('/', array('controller' => 'sites', 'action' => 'index', 'home'));
-Router::connect('/institucional', array('controller' => 'sites', 'action' => 'single_page', 2));
-Router::connect('/depoimentos', array('controller' => 'sites', 'action' => 'single_page', 3));
 
-Router::connect('/admin', array('controller' => 'pages', 'action' => 'display', 'home'));
+Router::connect(
+	'/', 
+	array('controller' => 'sites', 'action' => 'single_page')
+);
 
 Router::connect('/servicos', array('controller' => 'SolicitacaoServicos', 'action' => 'solicitar_servico'));
 Router::connect('/solicitar-certidao/*', array('controller' => 'SolicitacaoServicos', 'action' => 'solicitar_servico'), array('pass' => array('id')));
@@ -38,15 +38,31 @@ Router::connect('/solicitar-certidao/*', array('controller' => 'SolicitacaoServi
 Router::connect('/servicos-advocaticios', array('controller' => 'Sites', 'action' => 'servico_advogado'));
 Router::connect('/contato', array('controller' => 'Sites', 'action' => 'contato'));
 
+Router::connect('/admin', array('controller' => 'users', 'action' => 'login', 'admin' => true));
 
-Router::connect('/admin/users', array('controller' => 'users', 'action' => 'index'));
+Router::connect(
+	'/:slug', 
+	array('controller' => 'sites', 'action' => 'single_page'),
+	array(
+		'pass' => array('slug'),
+	)
+);
+//Router::connect('/institucional', array('controller' => 'sites', 'action' => 'single_page', 2));
+//Router::connect('/depoimentos', array('controller' => 'sites', 'action' => 'single_page', 3));
 
-Router::connect('/admin/users/:action/*', array('controller' => 'users'));
+//Router::connect('/admin', array('controller' => 'pages', 'action' => 'display', 'home', 'admin' => true));
+
+
+
+
+
+
+//Router::connect('/admin/users/:action/*', array('controller' => 'users'));
 
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */
-Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+//Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
 /**
  * Load all plugin routes.  See the CakePlugin documentation on 

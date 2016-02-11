@@ -23,18 +23,18 @@ class UsersController extends AppController {
      * Actions
       ---------------------------------------- */
 
-    public function index() {
+    public function admin_index() {
 
-        $this->checkAccess($this->name, __FUNCTION__);
+        //$this->checkAccess($this->name, __FUNCTION__);
         $this->paginate['fields'] = array('id', 'name', 'email');
         $this->paginate['contain'] = array('Profile.name');
         $this->paginate['order'] = "User.created DESC";
         $this->set("users", $this->paginate("User"));
     }
 
-    public function view($id = null) {
+    public function admin_view($id = null) {
 
-        $this->checkAccess($this->name, __FUNCTION__);
+        //$this->checkAccess($this->name, __FUNCTION__);
         $this->User->contain(array('Profile' => array('fields' => array('name'))));
         $user = $this->User->findById($id);
 
@@ -42,9 +42,9 @@ class UsersController extends AppController {
         $this->set("user", $user);
     }
 
-    public function add() {
+    public function admin_add() {
 
-        $this->checkAccess($this->name, __FUNCTION__);
+        //$this->checkAccess($this->name, __FUNCTION__);
 
         if ($this->request->isPost()) {
 
@@ -65,9 +65,9 @@ class UsersController extends AppController {
         $this->profilesList();
     }
 
-    public function edit($id = null) {
+    public function admin_edit($id = null) {
 
-        $this->checkAccess($this->name, __FUNCTION__);
+        //$this->checkAccess($this->name, __FUNCTION__);
 
         if (!$this->User->isAdmin() && $this->User->isAdmin($id)) {
 
@@ -78,7 +78,7 @@ class UsersController extends AppController {
         if ($this->User->isAdminUser($id)) {
 
             if ($this->User->isAdminUser())
-                $this->Session->setFlash('Para editar seu usuário Administrador, clique em "<strong>Meus dados</strong>" no menu do canto superior direito.', 'default', array('button' => array('label' => 'Editar meus dados', 'url' => '/users/manageAccount')));
+                $this->Session->setFlash('Para editar seu usuário Administrador, clique em "<strong>Meus dados</strong>" no menu do canto superior direito.', 'default', array('button' => array('label' => 'Editar meus dados', 'url' => '/admin/users/manageAccount')));
             else
                 $this->Session->setFlash("Você não pode <strong>editar</strong> o Usuário <strong>Administrador Geral</strong>.", "default", array('class' => 'error'));
 
@@ -108,9 +108,9 @@ class UsersController extends AppController {
         $this->profilesList();
     }
 
-    public function delete($id = null) {
+    public function admin_delete($id = null) {
 
-        $this->checkAccess($this->name, __FUNCTION__);
+        ///$this->checkAccess($this->name, __FUNCTION__);
 
         $this->User->contain();
         $user = $this->User->findById($id);
@@ -141,12 +141,12 @@ class UsersController extends AppController {
         $this->redirect(array('controller' => $this->name, 'action' => 'index'));
     }
 
-    public function login() {
+    public function admin_login() {
 
         if ($this->request->isPost()) {
 
             if ($this->Auth->login())
-                $this->redirect('/admin');
+                $this->redirect(array('controller' => 'pages', 'action' => 'display', 'home'));
             else
                 $this->Session->setFlash('<strong>Usuário</strong> ou <strong>senha</strong> inválida.', 'default', array('class' => 'error'), 'auth');
         }
@@ -154,12 +154,12 @@ class UsersController extends AppController {
         $this->layout = "login";
     }
 
-    public function logout() {
+    public function admin_logout() {
 
         $this->redirect($this->Auth->logout());
     }
 
-    public function manageAccount() {
+    public function admin_manageAccount() {
 
         if (!$this->request->isPost()) {
 
