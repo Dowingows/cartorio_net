@@ -41,9 +41,9 @@
     <ul data-type="navbar" class="sf-menu">
         <?php foreach($menus as $item) :?>
         <?php $active=""; 
-        if($item['active']){
-            $active ="active";
-        }
+        // if($item['active']){
+        //     $active ="active";
+        // }
         ?>
         <li class="<?= $active ?>" ><a href="<?= $this->Html->url($item['url']) ?>"><?= $item['label']?></a>
         

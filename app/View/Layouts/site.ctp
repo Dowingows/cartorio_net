@@ -339,6 +339,11 @@
         color: rgb(234, 128, 21);
     }
 
+
+  .container .grid_4 {
+      padding-right: 15px;
+  }
+
    blockquote{
     display:block;
     background: #fff;
@@ -402,6 +407,7 @@
   .contact-list a:hover {
       color: #777777;
   }
+
       /*
   footer {
     background: rgb(0, 0, 0);
